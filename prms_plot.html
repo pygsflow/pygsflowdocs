@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.output.prms_plot Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/prms_plot.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.utils.constants Module" href="constants.html" />
+    <link rel="prev" title="gsflow.output.prms_output Module" href="prms_output.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="discretization.html">gsflow.output.discretization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_output.html">gsflow.output.prms_output Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.output.prms_plot Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.output.prms_plot Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/prms_plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="gsflow-output-prms-plot-module">
+<h1>gsflow.output.prms_plot Module<a class="headerlink" href="#gsflow-output-prms-plot-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-gsflow.output.prms_plot"></span><dl class="class">
+<dt id="gsflow.output.prms_plot.PrmsPlot">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.output.prms_plot.</code><code class="sig-name descname">PrmsPlot</code><span class="sig-paren">(</span><em class="sig-param">prms_dis=None</em>, <em class="sig-param">extent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plotting class for PRMS data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prms_dis</strong><span class="classifier">PrmsDiscretization object, optional</span></dt><dd><dl class="simple">
+<dt>extent<span class="classifier">tuple of floats, optional</span></dt><dd><p>plot extent, if None PrmsPlot will get extent from PrmsDiscretization</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>create a plot object and plot an array</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dis</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">PrmsDiscretization</span><span class="o">.</span><span class="n">load_from_shapefile</span><span class="p">(</span><span class="s2">&quot;myshp.shp&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">PrmsPlot</span><span class="p">(</span><span class="n">prms_dis</span><span class="o">=</span><span class="n">dis</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">dis</span><span class="o">.</span><span class="n">nhru</span><span class="p">,))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.prms_plot.PrmsPlot.contour_array" title="gsflow.output.prms_plot.PrmsPlot.contour_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contour_array</span></code></a>(self, array[, ax, masked_values])</p></td>
+<td><p>Contour an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.output.prms_plot.PrmsPlot.contour_parameter" title="gsflow.output.prms_plot.PrmsPlot.contour_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contour_parameter</span></code></a>(self, parameter[, ax, …])</p></td>
+<td><p>Contour an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.prms_plot.PrmsPlot.plot_array" title="gsflow.output.prms_plot.PrmsPlot.plot_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_array</span></code></a>(self, array[, ax, masked_values])</p></td>
+<td><p>General array plotter</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.output.prms_plot.PrmsPlot.plot_model_discretization" title="gsflow.output.prms_plot.PrmsPlot.plot_model_discretization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_model_discretization</span></code></a>(self[, ax])</p></td>
+<td><p>Plots the model grid</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.prms_plot.PrmsPlot.plot_parameter" title="gsflow.output.prms_plot.PrmsPlot.plot_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_parameter</span></code></a>(self, parameter[, ax, …])</p></td>
+<td><p>Method to plot a parameter from a ParameterRecord</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.output.prms_plot.PrmsPlot.contour_array">
+<code class="sig-name descname">contour_array</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">array</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">masked_values=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot.contour_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot.contour_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contour an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Array to plot.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd><p>optional axes object</p>
+</dd>
+<dt><strong>masked_values</strong><span class="classifier">list, optional</span></dt><dd><p>list of values to mask.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dictionary</span></dt><dd><p>keyword arguments passed to matplotlib.pyplot.pcolormesh</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>contour_set</strong><span class="classifier">matplotlib.tri.tricontour object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.prms_plot.PrmsPlot.contour_parameter">
+<code class="sig-name descname">contour_parameter</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">parameter</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">masked_values=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot.contour_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot.contour_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contour an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">PrmsParameter object</span></dt><dd></dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd><p>optional axes object</p>
+</dd>
+<dt><strong>masked_values</strong><span class="classifier">iterable of floats, ints</span></dt><dd><p>Values to mask.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dictionary</span></dt><dd><p>keyword arguments passed to matplotlib.pyplot.pcolormesh</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>contour_set</strong><span class="classifier">matplotlib.tri.tricontour object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.prms_plot.PrmsPlot.plot_array">
+<code class="sig-name descname">plot_array</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">array</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">masked_values=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot.plot_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot.plot_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>General array plotter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>array</strong><span class="classifier">array to plot.</span></dt><dd><p>size must be equal to nhru</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd></dd>
+<dt><strong>masked_values</strong><span class="classifier">list, optional</span></dt><dd><p>list of values to mask from plotting</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">matplotlib keyword arguments</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.collections.PatchCollection</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.prms_plot.PrmsPlot.plot_model_discretization">
+<code class="sig-name descname">plot_model_discretization</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot.plot_model_discretization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot.plot_model_discretization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the model grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes object, optional</span></dt><dd></dd>
+<dt><strong>kwargs :</strong></dt><dd><p>matplotlib keyword arguments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.prms_plot.PrmsPlot.plot_parameter">
+<code class="sig-name descname">plot_parameter</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">parameter</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">masked_values=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_plot.html#PrmsPlot.plot_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_plot.PrmsPlot.plot_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to plot a parameter from a ParameterRecord</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">PrmsParameter object</span></dt><dd></dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd></dd>
+<dt><strong>masked_values</strong><span class="classifier">list, optional</span></dt><dd><p>list of values to mask from plotting</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">matplotlib keyword arguments</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.collections.PatchCollection or</dt><dd><p>matplotlib.figure.Figure</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="constants.html" class="btn btn-neutral float-right" title="gsflow.utils.constants Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prms_output.html" class="btn btn-neutral float-left" title="gsflow.output.prms_output Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

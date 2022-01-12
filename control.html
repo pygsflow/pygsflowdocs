@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.control Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/control.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.prms.prms_data Module" href="prms_data.html" />
+    <link rel="prev" title="gsflow.prms.prms_model Module" href="prms_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gsflow.html">gsflow.gsflow Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.control Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.control Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/control.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.control">
+<span id="gsflow-control-module"></span><h1>gsflow.control Module<a class="headerlink" href="#module-gsflow.control" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.control.ControlFile">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.control.</code><code class="sig-name descname">ControlFile</code><span class="sig-paren">(</span><em class="sig-param">records_list</em>, <em class="sig-param">name='Control'</em>, <em class="sig-param">model_dir=''</em>, <em class="sig-param">header=None</em>, <em class="sig-param">abs_path=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to hold information about control file.
+Class reads, allows edits, and writes control file parameter data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>records_list</strong><span class="classifier">list</span></dt><dd><p>list of ControlRecord objects</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>file name</p>
+</dd>
+<dt><strong>model_dir</strong><span class="classifier">str</span></dt><dd><p>model working directory</p>
+</dd>
+<dt><strong>header</strong><span class="classifier">list</span></dt><dd><p>file header</p>
+</dd>
+<dt><strong>abs_path</strong><span class="classifier">bool</span></dt><dd><p>optional flag to store control file path variables to abs paths,
+default is True</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>load from file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">control</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">ControlFile</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;gsflow.control&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>build a new empty object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">control</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">ControlFile</span><span class="p">(</span><span class="n">records_list</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>record_names</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.control.ControlFile.records_list" title="gsflow.control.ControlFile.records_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">records_list</span></code></a></dt><dd><p>Returns a list of ControlRecord objects</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.add_record" title="gsflow.control.ControlFile.add_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_record</span></code></a>(self[, name, values, where, after])</p></td>
+<td><p>Convience method to add a record to the control file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.get_record" title="gsflow.control.ControlFile.get_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_record</span></code></a>(self, name)</p></td>
+<td><p>Get a complete record object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.get_values" title="gsflow.control.ControlFile.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>(self, name)</p></td>
+<td><p>Get a record’s values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.load_from_file" title="gsflow.control.ControlFile.load_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_file</span></code></a>(control_file[, abs_path])</p></td>
+<td><p>Method to load and create a ControlFile object from a pre-built gsflow control file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.remove_record" title="gsflow.control.ControlFile.remove_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_record</span></code></a>(self, name)</p></td>
+<td><p>Method to remove a parameter record from a control file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.set_values" title="gsflow.control.ControlFile.set_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_values</span></code></a>(self, name, values)</p></td>
+<td><p>Method to set new values to a control record</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.control.ControlFile.write" title="gsflow.control.ControlFile.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self[, name])</p></td>
+<td><p>Method to write the control file</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.control.ControlFile.add_record">
+<code class="sig-name descname">add_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name=None</em>, <em class="sig-param">values=None</em>, <em class="sig-param">where=None</em>, <em class="sig-param">after=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.add_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.add_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convience method to add a record to the control file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>record name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>list of values</p>
+</dd>
+<dt><strong>where</strong><span class="classifier">int, optional</span></dt><dd><p>index location to insert record</p>
+</dd>
+<dt><strong>after</strong><span class="classifier">int, optional</span></dt><dd><p>index location - 1 to insert record</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.get_record">
+<code class="sig-name descname">get_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.get_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.get_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a complete record object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>ControlRecord name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ControlRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.get_values">
+<code class="sig-name descname">get_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a record’s values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>record name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray or list</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.load_from_file">
+<em class="property">static </em><code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">control_file</em>, <em class="sig-param">abs_path=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load and create a ControlFile object
+from a pre-built gsflow control file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>control_file</strong><span class="classifier">str</span></dt><dd><p>control file path &amp; name</p>
+</dd>
+<dt><strong>set_abs</strong><span class="classifier">bool</span></dt><dd><p>optional flag to set control file variables to abs paths, default
+is True</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ControlFile object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.records_list">
+<em class="property">property </em><code class="sig-name descname">records_list</code><a class="headerlink" href="#gsflow.control.ControlFile.records_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of ControlRecord objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.remove_record">
+<code class="sig-name descname">remove_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.remove_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to remove a parameter record from a control file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>control record name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.set_values">
+<code class="sig-name descname">set_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.set_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set new values to a control record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>control record name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>list of values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlFile.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlFile.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlFile.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to write the control file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str, optional</span></dt><dd><p>control file name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gsflow.control.ControlRecord">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.control.</code><code class="sig-name descname">ControlRecord</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">values=None</em>, <em class="sig-param">datatype=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlRecord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>ControlRecord is the object used for creating and editing
+control file record objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>record name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>list of values</p>
+</dd>
+<dt><strong>datatype</strong><span class="classifier">int</span></dt><dd><p>integer datatype flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>create a modflow_nam ControlRecord</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="n">ControlRecord</span><span class="p">(</span><span class="s2">&quot;modflow_nam&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;gsflow_test.nam&quot;</span><span class="p">,])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.control.ControlRecord.nvalues" title="gsflow.control.ControlRecord.nvalues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nvalues</span></code></a></dt><dd><p>Returns the number of values in the record</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.control.ControlRecord.values" title="gsflow.control.ControlRecord.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a></dt><dd><p>Returns a list of the records values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.control.ControlRecord.write" title="gsflow.control.ControlRecord.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self, fid)</p></td>
+<td><p>Write method for a control record</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>export_nc</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>from_dict</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>to_dict</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.control.ControlRecord.nvalues">
+<em class="property">property </em><code class="sig-name descname">nvalues</code><a class="headerlink" href="#gsflow.control.ControlRecord.nvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of values in the record</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlRecord.values">
+<em class="property">property </em><code class="sig-name descname">values</code><a class="headerlink" href="#gsflow.control.ControlRecord.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the records values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.control.ControlRecord.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/control.html#ControlRecord.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.control.ControlRecord.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write method for a control record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fid</strong><span class="classifier">File object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="prms_data.html" class="btn btn-neutral float-right" title="gsflow.prms.prms_data Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prms_model.html" class="btn btn-neutral float-left" title="gsflow.prms.prms_model Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.utils.mfreadnam Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/mfreadnam.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.utils.netcdf Module" href="netcdf.html" />
+    <link rel="prev" title="gsflow.utils.io Module" href="io.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="constants.html">gsflow.utils.constants Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html">gsflow.utils.io Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.utils.mfreadnam Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netcdf.html">gsflow.utils.netcdf Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasters.html">gsflow.utils.rasters Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sfr_renumber.html">gsflow.utils.sfr_renumber Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.utils.mfreadnam Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/mfreadnam.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.utils.mfreadnam">
+<span id="gsflow-utils-mfreadnam-module"></span><h1>gsflow.utils.mfreadnam Module<a class="headerlink" href="#module-gsflow.utils.mfreadnam" title="Permalink to this headline">¶</a></h1>
+<p>mfreadnam module.  Contains the NamData class. Note that the user can access
+the NamData class as <cite>flopy.modflow.NamData</cite>.</p>
+<p>Additional information about the MODFLOW name file can be found at the <a class="reference external" href="http://water.usgs.gov/ogw/modflow/MODFLOW-2005-Guide/name_file.htm">Online
+MODFLOW Guide</a>.</p>
+<dl class="class">
+<dt id="gsflow.utils.mfreadnam.NamData">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.utils.mfreadnam.</code><code class="sig-name descname">NamData</code><span class="sig-paren">(</span><em class="sig-param">pkgtype</em>, <em class="sig-param">name</em>, <em class="sig-param">handle</em>, <em class="sig-param">packages</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/mfreadnam.html#NamData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.mfreadnam.NamData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Child class of the MODFLOW Namefile Class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pkgtype</strong><span class="classifier">string</span></dt><dd><p>String identifying the type of MODFLOW package. See the
+mfnam_packages dictionary keys in the model object for a list
+of supported packages. This dictionary is also passed in as packages.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">string</span></dt><dd><p>Filename of the package file identified in the name file</p>
+</dd>
+<dt><strong>handle</strong><span class="classifier">file handle</span></dt><dd><p>File handle referring to the file identified by <cite>name</cite></p>
+</dd>
+<dt><strong>packages</strong><span class="classifier">dictionary</span></dt><dd><p>Dictionary of package objects as defined in the
+<cite>mfnam_packages</cite> attribute of <code class="xref py py-class docutils literal notranslate"><span class="pre">flopy.modflow.mf.Modflow</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>filehandle</strong><span class="classifier">file handle</span></dt><dd><p>File handle to the package file. Read from <cite>handle</cite>.</p>
+</dd>
+<dt><strong>filename</strong><span class="classifier">string</span></dt><dd><p>Filename of the package file identified in the name file.
+Read from <cite>name</cite>.</p>
+</dd>
+<dt><strong>filetype</strong><span class="classifier">string</span></dt><dd><p>String identifying the type of MODFLOW package. Read from
+<cite>pkgtype</cite>.</p>
+</dd>
+<dt><strong>package</strong><span class="classifier">string</span></dt><dd><p>Package type. Only assigned if <cite>pkgtype</cite> is found in the keys
+of <cite>packages</cite></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.utils.mfreadnam.getfiletypeunit">
+<code class="sig-prename descclassname">gsflow.utils.mfreadnam.</code><code class="sig-name descname">getfiletypeunit</code><span class="sig-paren">(</span><em class="sig-param">nf</em>, <em class="sig-param">filetype</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/mfreadnam.html#getfiletypeunit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.mfreadnam.getfiletypeunit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to return unit number of a package from a NamData instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nf</strong><span class="classifier">NamData instance</span></dt><dd></dd>
+<dt><strong>filetype</strong><span class="classifier">string, name of package seeking information for</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>cunit</strong><span class="classifier">int, unit number corresponding to the package type</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.utils.mfreadnam.parsenamefile">
+<code class="sig-prename descclassname">gsflow.utils.mfreadnam.</code><code class="sig-name descname">parsenamefile</code><span class="sig-paren">(</span><em class="sig-param">namfilename</em>, <em class="sig-param">packages</em>, <em class="sig-param">control_file=None</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">model_ws='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/mfreadnam.html#parsenamefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.mfreadnam.parsenamefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dict from the nam file with NamData keyed by unit number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>namfilename</strong><span class="classifier">str</span></dt><dd><p>Name of the MODFLOW namefile to parse.</p>
+</dd>
+<dt><strong>packages</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of package objects as defined in the <cite>mfnam_packages</cite>
+attribute of <code class="xref py py-class docutils literal notranslate"><span class="pre">flopy.modflow.mf.Modflow</span></code>.</p>
+</dd>
+<dt><strong>control_file</strong><span class="classifier">str</span></dt><dd><p>gsflow option for creating absolute paths to read the nam file</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>Print messages to screen.  Default is True.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict or OrderedDict</dt><dd><p>For each file listed in the name file, a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">flopy.utils.mfreadnam.NamData</span></code> instance
+is stored in the returned dict keyed by unit number. Prior to Python
+version 3.6 the return object is an OrderedDict to retain the order
+of items in the nam file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IOError:</dt><dd><p>If namfilename does not exist in the directory.</p>
+</dd>
+<dt>ValueError:</dt><dd><p>For lines that cannot be parsed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="netcdf.html" class="btn btn-neutral float-right" title="gsflow.utils.netcdf Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="io.html" class="btn btn-neutral float-left" title="gsflow.utils.io Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

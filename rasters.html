@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.utils.rasters Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/rasters.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.utils.sfr_renumber Module" href="sfr_renumber.html" />
+    <link rel="prev" title="gsflow.utils.netcdf Module" href="netcdf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="constants.html">gsflow.utils.constants Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html">gsflow.utils.io Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mfreadnam.html">gsflow.utils.mfreadnam Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netcdf.html">gsflow.utils.netcdf Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.utils.rasters Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sfr_renumber.html">gsflow.utils.sfr_renumber Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.utils.rasters Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/rasters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.utils.rasters">
+<span id="gsflow-utils-rasters-module"></span><h1>gsflow.utils.rasters Module<a class="headerlink" href="#module-gsflow.utils.rasters" title="Permalink to this headline">¶</a></h1>
+<p>rasters.py includes code to work with raster datasets,
+particularly to sample raster using a PrmsDiscretization
+object and then use it as input data</p>
+<dl class="class">
+<dt id="gsflow.utils.rasters.Rasters">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.utils.rasters.</code><code class="sig-name descname">Rasters</code><span class="sig-paren">(</span><em class="sig-param">raster</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: please use flopy.utils.Rasters, will be removed in version
+1.1.0</p>
+<p>Raster object which allows the users to snap a raster to a grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>raster</strong><span class="classifier">osgeo.gdal.Dataset object</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.band_array" title="gsflow.utils.rasters.Rasters.band_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">band_array</span></code></a></dt><dd><p>Returns</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.extent" title="gsflow.utils.rasters.Rasters.extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extent</span></code></a></dt><dd><p>Returns</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.xpoints" title="gsflow.utils.rasters.Rasters.xpoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpoints</span></code></a></dt><dd><p>Returns</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.xypoints" title="gsflow.utils.rasters.Rasters.xypoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xypoints</span></code></a></dt><dd><p>Returns</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.ypoints" title="gsflow.utils.rasters.Rasters.ypoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypoints</span></code></a></dt><dd><p>Returns</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.load" title="gsflow.utils.rasters.Rasters.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(name)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.sample_discretization" title="gsflow.utils.rasters.Rasters.sample_discretization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_discretization</span></code></a>(self, prms_discretizaiton)</p></td>
+<td><p>Method to sample the raster using the prms_discretization object cell centers</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.set_raster_band" title="gsflow.utils.rasters.Rasters.set_raster_band"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_raster_band</span></code></a>(self, band)</p></td>
+<td><p>Method to use GDAL to set the raster band for visualization</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.band_array">
+<em class="property">property </em><code class="sig-name descname">band_array</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.band_array" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>np.ndarray of the raster band</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.extent">
+<em class="property">property </em><code class="sig-name descname">extent</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.extent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(xmin, xmax, ymin, ymax)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.load">
+<em class="property">static </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.load" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">raster file name</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Rasters object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.sample_discretization">
+<code class="sig-name descname">sample_discretization</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">prms_discretizaiton</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.sample_discretization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.sample_discretization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to sample the raster using the prms_discretization
+object cell centers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prms_discretizaiton</strong><span class="classifier">PrmsDiscretization object</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.set_raster_band">
+<code class="sig-name descname">set_raster_band</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">band</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.set_raster_band"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.set_raster_band" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to use GDAL to set the raster band
+for visualization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>raster band number</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.xpoints">
+<em class="property">property </em><code class="sig-name descname">xpoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.xpoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Cell centered x points for raster values</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.xypoints">
+<em class="property">property </em><code class="sig-name descname">xypoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.xypoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>np.ndarray cell centered x, y points for raster values</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Rasters.ypoints">
+<em class="property">property </em><code class="sig-name descname">ypoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.ypoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Cell centered y points for raster values</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="sfr_renumber.html" class="btn btn-neutral float-right" title="gsflow.utils.sfr_renumber Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="netcdf.html" class="btn btn-neutral float-left" title="gsflow.utils.netcdf Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

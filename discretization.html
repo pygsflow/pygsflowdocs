@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.output.discretization Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/discretization.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.output.prms_output Module" href="prms_output.html" />
+    <link rel="prev" title="gsflow.modsim.modsim Module" href="modsim.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.output.discretization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_output.html">gsflow.output.prms_output Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_plot.html">gsflow.output.prms_plot Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.output.discretization Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/discretization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.output.discretization">
+<span id="gsflow-output-discretization-module"></span><h1>gsflow.output.discretization Module<a class="headerlink" href="#module-gsflow.output.discretization" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.output.discretization.PrmsDiscretization">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.output.discretization.</code><code class="sig-name descname">PrmsDiscretization</code><span class="sig-paren">(</span><em class="sig-param">xypts</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/discretization.html#PrmsDiscretization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PrmsDiscretization object is used for plotting hru’s and
+hru data from Prms on matplotlib plots.</p>
+<p>Could also be used for exporting shape files of data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>xypts</strong><span class="classifier">list</span></dt><dd><p>3 dimensional list of hru [(x1, y1)….(xn, yn)] points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>load from shapefile</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dis</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">PrmsDiscretization</span><span class="o">.</span><span class="n">load_from_shapefile</span><span class="p">(</span><span class="s2">&quot;myshape.shp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>load from flopy grid</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;mycontrol.control&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">gsf</span><span class="o">.</span><span class="n">mf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dis</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">PrmsDiscretization</span><span class="o">.</span><span class="n">load_from_flopy</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">ml</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.extent" title="gsflow.output.discretization.PrmsDiscretization.extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extent</span></code></a></dt><dd><p>Returns a tuple of (xmin, xmax, ymin, ymax)</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.nhru" title="gsflow.output.discretization.PrmsDiscretization.nhru"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhru</span></code></a></dt><dd><p>Returns the number of hrus</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.x_hru_centers" title="gsflow.output.discretization.PrmsDiscretization.x_hru_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x_hru_centers</span></code></a></dt><dd><p>Returns a np.ndarray of x-centers for each hru</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.xypts" title="gsflow.output.discretization.PrmsDiscretization.xypts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xypts</span></code></a></dt><dd><p>Returns a np.ndarray of xy-points for each hru</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.y_hru_centers" title="gsflow.output.discretization.PrmsDiscretization.y_hru_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y_hru_centers</span></code></a></dt><dd><p>Returns a np.ndarray of y-centers for each hru</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.get_hru_points" title="gsflow.output.discretization.PrmsDiscretization.get_hru_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hru_points</span></code></a>(self, hru)</p></td>
+<td><p>Get the x, y coordinate points for a hru</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.load_from_flopy" title="gsflow.output.discretization.PrmsDiscretization.load_from_flopy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_flopy</span></code></a>(model[, xll, yll, rotation])</p></td>
+<td><p>Method to load discretization from a flopy model</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.load_from_shapefile" title="gsflow.output.discretization.PrmsDiscretization.load_from_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_shapefile</span></code></a>(shp[, hru_id])</p></td>
+<td><p>Load method from a polygon shapefile.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.output.discretization.PrmsDiscretization.plot_discretization" title="gsflow.output.discretization.PrmsDiscretization.plot_discretization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_discretization</span></code></a>(self[, ax])</p></td>
+<td><p>Method to plot the PRMS discretization on a matplotlib.pyplot plot</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.extent">
+<em class="property">property </em><code class="sig-name descname">extent</code><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple of (xmin, xmax, ymin, ymax)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.get_hru_points">
+<code class="sig-name descname">get_hru_points</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">hru</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/discretization.html#PrmsDiscretization.get_hru_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.get_hru_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the x, y coordinate points for a hru</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hru</strong><span class="classifier">int</span></dt><dd><p>hru number</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of x, y coordinate points</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.load_from_flopy">
+<em class="property">static </em><code class="sig-name descname">load_from_flopy</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">xll=None</em>, <em class="sig-param">yll=None</em>, <em class="sig-param">rotation=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/discretization.html#PrmsDiscretization.load_from_flopy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.load_from_flopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load discretization from a flopy model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">flopy.modflow.Modflow or gsflow.modflow.Modflow object</span></dt><dd></dd>
+<dt><strong>xll</strong><span class="classifier">float, optional</span></dt><dd><p>xoffset for modflow grid</p>
+</dd>
+<dt><strong>yll</strong><span class="classifier">float, optional</span></dt><dd><p>yoffset for modflow grid</p>
+</dd>
+<dt><strong>rotation</strong><span class="classifier">float, optional</span></dt><dd><p>rotation for modflow grid</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>PrmsDiscretization object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.load_from_shapefile">
+<em class="property">static </em><code class="sig-name descname">load_from_shapefile</code><span class="sig-paren">(</span><em class="sig-param">shp</em>, <em class="sig-param">hru_id='hru_id'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/discretization.html#PrmsDiscretization.load_from_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.load_from_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load method from a polygon shapefile. Shapefile
+must also have a hru field in the dbf file to sort
+the hydrologic reservior units properly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shp</strong><span class="classifier">str or shapefile.Reader object</span></dt><dd></dd>
+<dt><strong>hru_id</strong><span class="classifier">str</span></dt><dd><p>field of hru id in shapefile</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>PrmsDiscretization object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.nhru">
+<em class="property">property </em><code class="sig-name descname">nhru</code><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.nhru" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of hrus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.plot_discretization">
+<code class="sig-name descname">plot_discretization</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/discretization.html#PrmsDiscretization.plot_discretization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.plot_discretization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to plot the PRMS discretization on a matplotlib.pyplot
+plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd><p>if None, gets current working axes</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">matplotlib.pyplot keyword arguments</span></dt><dd><p>only for Polygon patches</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.pyplot.axes object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.x_hru_centers">
+<em class="property">property </em><code class="sig-name descname">x_hru_centers</code><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.x_hru_centers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a np.ndarray of x-centers for each hru</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.xypts">
+<em class="property">property </em><code class="sig-name descname">xypts</code><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.xypts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a np.ndarray of xy-points for each hru</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.output.discretization.PrmsDiscretization.y_hru_centers">
+<em class="property">property </em><code class="sig-name descname">y_hru_centers</code><a class="headerlink" href="#gsflow.output.discretization.PrmsDiscretization.y_hru_centers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a np.ndarray of y-centers for each hru</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="prms_output.html" class="btn btn-neutral float-right" title="gsflow.output.prms_output Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modsim.html" class="btn btn-neutral float-left" title="gsflow.modsim.modsim Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

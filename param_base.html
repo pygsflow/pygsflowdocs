@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.param_base Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/param_base.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.record_base Module" href="record_base.html" />
+    <link rel="prev" title="pyGSFLOW API" href="code.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#base-classes">Base Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.param_base Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="record_base.html">gsflow.record_base Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.param_base Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/param_base.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.param_base">
+<span id="gsflow-param-base-module"></span><h1>gsflow.param_base Module<a class="headerlink" href="#module-gsflow.param_base" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.param_base.ParameterBase">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.param_base.</code><code class="sig-name descname">ParameterBase</code><span class="sig-paren">(</span><em class="sig-param">records_list</em>, <em class="sig-param">name=None</em>, <em class="sig-param">model_dir=None</em>, <em class="sig-param">header=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for parameter based files within GSFLOW</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>records_list</strong><span class="classifier">list</span></dt><dd><p>list of ParameterRecord objects</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str, optional</span></dt><dd><p>parameter file name</p>
+</dd>
+<dt><strong>model_dir</strong><span class="classifier">str, optional</span></dt><dd><p>parameter file directory</p>
+</dd>
+<dt><strong>header</strong><span class="classifier">str, optional</span></dt><dd><p>header for the parameter file</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>record_names</strong></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.param_base.ParameterBase.add_record" title="gsflow.param_base.ParameterBase.add_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_record</span></code></a>(self, recobj[, where, after])</p></td>
+<td><p>Generalized method to add a record to a record list</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.param_base.ParameterBase.get_record" title="gsflow.param_base.ParameterBase.get_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_record</span></code></a>(self, name, rectype)</p></td>
+<td><p>Method to get records</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.param_base.ParameterBase.get_values" title="gsflow.param_base.ParameterBase.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>(self, name)</p></td>
+<td><p>Method to get record values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.param_base.ParameterBase.remove_record" title="gsflow.param_base.ParameterBase.remove_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_record</span></code></a>(self, name)</p></td>
+<td><p>Method to remove a record</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.param_base.ParameterBase.set_values" title="gsflow.param_base.ParameterBase.set_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_values</span></code></a>(self, name, values)</p></td>
+<td><p>Method to set new values to a record</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.param_base.ParameterBase.add_record">
+<code class="sig-name descname">add_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">recobj</em>, <em class="sig-param">where=None</em>, <em class="sig-param">after=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase.add_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase.add_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalized method to add a record to a record list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>recobj</strong><span class="classifier">RecordBase object</span></dt><dd><p>ParameterRecord or ControlRecord</p>
+</dd>
+<dt><strong>where</strong><span class="classifier">int</span></dt><dd><p>index location to insert record</p>
+</dd>
+<dt><strong>after</strong><span class="classifier">int</span></dt><dd><p>index location - 1 to insert record</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.param_base.ParameterBase.get_record">
+<code class="sig-name descname">get_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">rectype</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase.get_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase.get_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get records</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>name of record</p>
+</dd>
+<dt><strong>rectype</strong><span class="classifier">class object</span></dt><dd><p>ParameterRecord or ControlRecord</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>RecordBase object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.param_base.ParameterBase.get_values">
+<code class="sig-name descname">get_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get record values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>name of record</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.param_base.ParameterBase.remove_record">
+<code class="sig-name descname">remove_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase.remove_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to remove a record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.param_base.ParameterBase.set_values">
+<code class="sig-name descname">set_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/param_base.html#ParameterBase.set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.param_base.ParameterBase.set_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set new values to a record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>record name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>list of values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="record_base.html" class="btn btn-neutral float-right" title="gsflow.record_base Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="code.html" class="btn btn-neutral float-left" title="pyGSFLOW API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

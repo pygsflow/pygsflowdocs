@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.gsflow Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/gsflow.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.modflow.mf Module" href="mf.html" />
+    <link rel="prev" title="gsflow.record_base Module" href="record_base.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-classes">Model Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.gsflow Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf.html">gsflow.modflow.mf Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_model.html">gsflow.prms.prms_model Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.gsflow Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html">gsflow.control Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.gsflow Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/gsflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.gsflow">
+<span id="gsflow-gsflow-module"></span><h1>gsflow.gsflow Module<a class="headerlink" href="#module-gsflow.gsflow" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.gsflow.GsflowModel">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.gsflow.</code><code class="sig-name descname">GsflowModel</code><span class="sig-paren">(</span><em class="sig-param">control=None</em>, <em class="sig-param">prms=None</em>, <em class="sig-param">mf=None</em>, <em class="sig-param">modflow_only=False</em>, <em class="sig-param">prms_only=False</em>, <em class="sig-param">gsflow_exe=None</em>, <em class="sig-param">modsim=False</em>, <em class="sig-param">model_ws=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/gsflow.html#GsflowModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.gsflow.GsflowModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>GsflowModel is the GSFLOW model object. This class can be used
+to build a GSFLOW model, to load a GSFLOW model from it’s control file,
+to write input files for GSFLOW, and to run GSFLOW.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>control_file</strong><span class="classifier">str</span></dt><dd><p>control file path and name</p>
+</dd>
+<dt><strong>prms</strong><span class="classifier">PrmsModel object</span></dt><dd><p>gsflow.prms.PrmsModel</p>
+</dd>
+<dt><strong>mf</strong><span class="classifier">Modflow object</span></dt><dd><p>gsflow.modflow.Modflow</p>
+</dd>
+<dt><strong>modflow_only</strong><span class="classifier">bool</span></dt><dd><p>flag that indicates only Modflow model</p>
+</dd>
+<dt><strong>prms_only</strong><span class="classifier">bool</span></dt><dd><p>flag that indicates only PRMS model</p>
+</dd>
+<dt><strong>gsflow_exe</strong><span class="classifier">str</span></dt><dd><p>GSFLOW executable path and name</p>
+</dd>
+<dt><strong>modsim</strong><span class="classifier">bool</span></dt><dd><p>boolean flag to indicate that modsim is active. This
+creates a gsflow.modsim.Modsim object</p>
+</dd>
+<dt><strong>model_ws</strong><span class="classifier">str, None</span></dt><dd><p>override method to set the base model directory when the
+GSFLOW control file is not located in the same directory as
+the script to run GSFLOW</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Load model from a control file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;gsflow.control&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create a new, empty gsflow object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">control</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">ControlFile</span><span class="p">(</span><span class="n">records_list</span><span class="o">=</span><span class="p">[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="p">(</span><span class="n">control</span><span class="o">=</span><span class="n">control</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.gsflow.GsflowModel.modflow_only" title="gsflow.gsflow.GsflowModel.modflow_only"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modflow_only</span></code></a></dt><dd><p>Returns boolean value indicating if the model is a modflow only model</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.gsflow.GsflowModel.prms_only" title="gsflow.gsflow.GsflowModel.prms_only"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prms_only</span></code></a></dt><dd><p>Returns a boolean value indicating if the model is a prms only model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.gsflow.GsflowModel.export_nc" title="gsflow.gsflow.GsflowModel.export_nc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_nc</span></code></a>(self, f, \*\*kwargs)</p></td>
+<td><p>Method to export the GSFLOW model as a netcdf file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.gsflow.GsflowModel.load_from_file" title="gsflow.gsflow.GsflowModel.load_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_file</span></code></a>(control_file[, gsflow_exe, …])</p></td>
+<td><p>Method to load a gsflow model from it’s control file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.gsflow.GsflowModel.run_model" title="gsflow.gsflow.GsflowModel.run_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_model</span></code></a>(self[, model_ws, forgive, …])</p></td>
+<td><p>Method to run a gsflow model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.gsflow.GsflowModel.write_input" title="gsflow.gsflow.GsflowModel.write_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_input</span></code></a>(self[, basename, workspace, …])</p></td>
+<td><p>Write input files for gsflow. Four cases are possible:</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.export_nc">
+<code class="sig-name descname">export_nc</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/gsflow.html#GsflowModel.export_nc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.gsflow.GsflowModel.export_nc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to export the GSFLOW model as a netcdf
+file. Note: This method only works if nhru is equivalent
+to nrow * ncol in modflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>netcdf file name</p>
+</dd>
+<dt><strong>kwargs :</strong></dt><dd><p>keyword arguments for netcdf</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.load_from_file">
+<em class="property">static </em><code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">control_file</em>, <em class="sig-param">gsflow_exe='gsflow.exe'</em>, <em class="sig-param">modflow_only=False</em>, <em class="sig-param">prms_only=False</em>, <em class="sig-param">mf_load_only=None</em>, <em class="sig-param">forgive=False</em>, <em class="sig-param">model_ws=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/gsflow.html#GsflowModel.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.gsflow.GsflowModel.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load a gsflow model from it’s control file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>control_file</strong><span class="classifier">str</span></dt><dd><p>control file path &amp; name</p>
+</dd>
+<dt><strong>gsflow_exe</strong><span class="classifier">str</span></dt><dd><p>gsflow executable path &amp; name</p>
+</dd>
+<dt><strong>modflow_only</strong><span class="classifier">bool</span></dt><dd><p>flag to load only modflow from the control file</p>
+</dd>
+<dt><strong>prms_only</strong><span class="classifier">bool</span></dt><dd><p>flag to load only prms from the control file</p>
+</dd>
+<dt><strong>mf_load_only</strong><span class="classifier">list</span></dt><dd><p>list of packages to load from modflow ex. [DIS, BAS, LPF]</p>
+</dd>
+<dt><strong>forgive</strong><span class="classifier">bool</span></dt><dd><p>forgive file loading errors in flopy</p>
+</dd>
+<dt><strong>model_ws</strong><span class="classifier">str, None</span></dt><dd><p>override method to set the base model directory when the
+GSFLOW control file is not located in the same directory as
+the script to run GSFLOW</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd><p>GsflowModel object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;gsflow.control&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.modflow_only">
+<em class="property">property </em><code class="sig-name descname">modflow_only</code><a class="headerlink" href="#gsflow.gsflow.GsflowModel.modflow_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns boolean value indicating if the model is a modflow only model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.prms_only">
+<em class="property">property </em><code class="sig-name descname">prms_only</code><a class="headerlink" href="#gsflow.gsflow.GsflowModel.prms_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boolean value indicating if the model is a prms only model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.run_model">
+<code class="sig-name descname">run_model</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">model_ws='.'</em>, <em class="sig-param">forgive=False</em>, <em class="sig-param">gsflow_exe=None</em>, <em class="sig-param">silent=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/gsflow.html#GsflowModel.run_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.gsflow.GsflowModel.run_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to run a gsflow model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model_ws</strong><span class="classifier">str</span></dt><dd><p>parameter to specify the model directory</p>
+</dd>
+<dt><strong>forgive</strong><span class="classifier">bool</span></dt><dd><p>forgives convergence issues</p>
+</dd>
+<dt><strong>gslfow_exe</strong><span class="classifier">str or None</span></dt><dd><p>path to gsflow_exe, if gsflow_exe is None it will use
+the previously defined gsflow_exe variable or the default
+gsflow.exe.</p>
+</dd>
+<dt><strong>silent</strong><span class="classifier">bool</span></dt><dd><p>flag to supress output printing to terminal during model run</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None or (success, buffer)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;gsflow.control&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span><span class="o">.</span><span class="n">run_model</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.gsflow.GsflowModel.write_input">
+<code class="sig-name descname">write_input</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">basename=None</em>, <em class="sig-param">workspace=None</em>, <em class="sig-param">write_only=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/gsflow.html#GsflowModel.write_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.gsflow.GsflowModel.write_input" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><dl>
+<dt>Write input files for gsflow. Four cases are possible:</dt><dd><ul class="simple">
+<li><p>if basename and workspace are None,then the exisiting files</p></li>
+</ul>
+<p>will be overwritten
+- if basename is specified, only file names will be changes
+- if only workspace is specified, only the directory will be
+changed
+- when both basename and workspace are specifed both files and
+the directory they are written to are changed</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>basename</strong><span class="classifier">str</span></dt><dd><p>project basename</p>
+</dd>
+<dt><strong>workspace</strong><span class="classifier">str</span></dt><dd><p>model output directory</p>
+</dd>
+<dt><strong>write_only: a list</strong></dt><dd><p>[‘control’, ‘parameters’, ‘prms_data’, ‘mf’, ‘modsim’]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">GsflowModel</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;gsflow.control&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gsf</span><span class="o">.</span><span class="n">write_input</span><span class="p">(</span><span class="n">basename</span><span class="o">=</span><span class="s2">&quot;new&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="o">=</span><span class="s2">&quot;../new_model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="mf.html" class="btn btn-neutral float-right" title="gsflow.modflow.mf Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="record_base.html" class="btn btn-neutral float-left" title="gsflow.record_base Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

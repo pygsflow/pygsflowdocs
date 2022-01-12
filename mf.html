@@ -1,0 +1,1072 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.modflow.mf Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/mf.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.prms.prms_model Module" href="prms_model.html" />
+    <link rel="prev" title="gsflow.gsflow Module" href="gsflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-classes">Model Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gsflow.html">gsflow.gsflow Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.modflow.mf Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_model.html">gsflow.prms.prms_model Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.modflow.mf Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mfag.html">gsflow.modflow.mfag Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mfawu.html">gsflow.modflow.mfawu Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.modflow.mf Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/mf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.modflow.mf">
+<span id="gsflow-modflow-mf-module"></span><h1>gsflow.modflow.mf Module<a class="headerlink" href="#module-gsflow.modflow.mf" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.modflow.mf.Modflow">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.modflow.mf.</code><code class="sig-name descname">Modflow</code><span class="sig-paren">(</span><em class="sig-param">modelname='modflowtest'</em>, <em class="sig-param">namefile_ext='nam'</em>, <em class="sig-param">version='mfnwt'</em>, <em class="sig-param">version2='gsflow'</em>, <em class="sig-param">exe_name='mfnwt.exe'</em>, <em class="sig-param">structured=True</em>, <em class="sig-param">listunit=2</em>, <em class="sig-param">model_ws='.'</em>, <em class="sig-param">external_path=None</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>GSFLOW overridden MODFLOW Model Class. This class is a child of
+the FloPy flopy.modflow.Modflow class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>modelname</strong><span class="classifier">string, optional</span></dt><dd><p>Name of model.  This string will be used to name the MODFLOW input
+that are created with write_model. (the default is ‘modflowtest’)</p>
+</dd>
+<dt><strong>namefile_ext</strong><span class="classifier">string, optional</span></dt><dd><p>Extension for the namefile (the default is ‘nam’)</p>
+</dd>
+<dt><strong>version</strong><span class="classifier">string, optional</span></dt><dd><p>Version of MODFLOW to use (the default is ‘mfnwt’)</p>
+</dd>
+<dt><strong>version2</strong><span class="classifier">str, optional</span></dt><dd><p>Secondary MODFLOW version to use (the default is ‘gsflow’)</p>
+</dd>
+<dt><strong>exe_name</strong><span class="classifier">string, optional</span></dt><dd><p>The name of the executable to use (the default is ‘mfnwt’).</p>
+</dd>
+<dt><strong>listunit</strong><span class="classifier">integer, optional</span></dt><dd><p>Unit number for the list file (the default is 2).</p>
+</dd>
+<dt><strong>model_ws</strong><span class="classifier">string, optional</span></dt><dd><p>model workspace.  Directory name to create model data sets.
+(default is the present working directory).</p>
+</dd>
+<dt><strong>external_path</strong><span class="classifier">string</span></dt><dd><p>Location for external files (default is None).</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">boolean, optional</span></dt><dd><p>Print additional information to the screen (default is False).</p>
+</dd>
+<dt><strong>load</strong><span class="classifier">boolean, optional</span></dt><dd><p>(default is True).</p>
+</dd>
+<dt><strong>silent</strong><span class="classifier">integer</span></dt><dd><p>(default is 0)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">flopy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>exename</strong></dt><dd></dd>
+<dt><strong>hdry</strong></dt><dd></dd>
+<dt><strong>hnoflo</strong></dt><dd></dd>
+<dt><strong>laycbd</strong></dt><dd></dd>
+<dt><strong>laytyp</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.model_ws" title="gsflow.modflow.mf.Modflow.model_ws"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_ws</span></code></a></dt><dd><p>Modflow model’s base directory path</p>
+</dd>
+<dt><strong>modelgrid</strong></dt><dd></dd>
+<dt><strong>modeltime</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.name" title="gsflow.modflow.mf.Modflow.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></dt><dd><p>Get model name</p>
+</dd>
+<dt><strong>namefile</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.ncol" title="gsflow.modflow.mf.Modflow.ncol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ncol</span></code></a></dt><dd><p>Returns the number of columns in the model</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.ncpl" title="gsflow.modflow.mf.Modflow.ncpl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ncpl</span></code></a></dt><dd><p>Returns the number of cells per layer in the model</p>
+</dd>
+<dt><strong>nlay</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.nper" title="gsflow.modflow.mf.Modflow.nper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nper</span></code></a></dt><dd><p>Returns the number of stress periods in the model</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.nrow" title="gsflow.modflow.mf.Modflow.nrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nrow</span></code></a></dt><dd><p>Returns the number of model rows</p>
+</dd>
+<dt><strong>nrow_ncol_nlay_nper</strong></dt><dd></dd>
+<dt><strong>packagelist</strong></dt><dd></dd>
+<dt><strong>solver_tols</strong></dt><dd></dd>
+<dt><strong>verbose</strong></dt><dd></dd>
+<dt><strong>version</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.modflow.mf.Modflow.version2" title="gsflow.modflow.mf.Modflow.version2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version2</span></code></a></dt><dd><p>Secondary version information about modflow</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_existing_package" title="gsflow.modflow.mf.Modflow.add_existing_package"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_existing_package</span></code></a>(self, filename[, …])</p></td>
+<td><p>Add an existing package to a model instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_external" title="gsflow.modflow.mf.Modflow.add_external"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_external</span></code></a>(self, fname, unit[, binflag, …])</p></td>
+<td><p>Assign an external array so that it will be listed as a DATA or DATA(BINARY) entry in the name file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_output" title="gsflow.modflow.mf.Modflow.add_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_output</span></code></a>(self, fname, unit[, binflag, package])</p></td>
+<td><p>Assign an external array so that it will be listed as a DATA or DATA(BINARY) entry in the name file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_output_file" title="gsflow.modflow.mf.Modflow.add_output_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_output_file</span></code></a>(self, unit[, fname, …])</p></td>
+<td><p>Add an ascii or binary output file for a package</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_package" title="gsflow.modflow.mf.Modflow.add_package"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_package</span></code></a>(self, p)</p></td>
+<td><p>Add a package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.add_pop_key_list" title="gsflow.modflow.mf.Modflow.add_pop_key_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_pop_key_list</span></code></a>(self, key)</p></td>
+<td><p>Add a external file unit number to a list that will be used to remove model output (typically binary) files from ext_unit_dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.change_model_ws" title="gsflow.modflow.mf.Modflow.change_model_ws"><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_model_ws</span></code></a>(self[, new_pth, reset_external])</p></td>
+<td><p>Change the model work space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.check" title="gsflow.modflow.mf.Modflow.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>(self[, f, verbose, level])</p></td>
+<td><p>Check model data for common errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.export" title="gsflow.modflow.mf.Modflow.export"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export</span></code></a>(self, f, \*\*kwargs)</p></td>
+<td><p>Method to export a model to netcdf or shapefile based on the extension of the file name (.shp for shapefile, .nc for netcdf)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.get_name_file_entries" title="gsflow.modflow.mf.Modflow.get_name_file_entries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name_file_entries</span></code></a>(self)</p></td>
+<td><p>Get a string representation of the name file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.get_output" title="gsflow.modflow.mf.Modflow.get_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_output</span></code></a>(self[, fname, unit])</p></td>
+<td><p>Get an output file from the model by specifying either the file name or the unit number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.get_output_attribute" title="gsflow.modflow.mf.Modflow.get_output_attribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_output_attribute</span></code></a>(self[, fname, unit, attr])</p></td>
+<td><p>Get a attribute for an output file from the model by specifying either the file name or the unit number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.get_package" title="gsflow.modflow.mf.Modflow.get_package"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_package</span></code></a>(self, name)</p></td>
+<td><p>Get a package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.get_package_list" title="gsflow.modflow.mf.Modflow.get_package_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_package_list</span></code></a>(self[, ftype])</p></td>
+<td><p>Get a list of all the package names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.has_package" title="gsflow.modflow.mf.Modflow.has_package"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_package</span></code></a>(self, name)</p></td>
+<td><p>Check if package name is in package list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.load" title="gsflow.modflow.mf.Modflow.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(f[, version, exe_name, verbose, …])</p></td>
+<td><p>Load an existing MODFLOW model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.next_ext_unit" title="gsflow.modflow.mf.Modflow.next_ext_unit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_ext_unit</span></code></a>(self)</p></td>
+<td><p>Function to encapsulate next_ext_unit attribute</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.plot" title="gsflow.modflow.mf.Modflow.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self[, SelPackList])</p></td>
+<td><p>Plot 2-D, 3-D, transient 2-D, and stress period list (MfList) model input data</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.remove_external" title="gsflow.modflow.mf.Modflow.remove_external"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_external</span></code></a>(self[, fname, unit])</p></td>
+<td><p>Remove an external file from the model by specifying either the file name or the unit number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.remove_output" title="gsflow.modflow.mf.Modflow.remove_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_output</span></code></a>(self[, fname, unit])</p></td>
+<td><p>Remove an output file from the model by specifying either the file name or the unit number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.remove_package" title="gsflow.modflow.mf.Modflow.remove_package"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_package</span></code></a>(self, pname)</p></td>
+<td><p>Remove a package from this model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.run_model" title="gsflow.modflow.mf.Modflow.run_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_model</span></code></a>(self[, silent, pause, report, …])</p></td>
+<td><p>This method will run the model using subprocess.Popen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.set_model_units" title="gsflow.modflow.mf.Modflow.set_model_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_units</span></code></a>(self[, iunit0])</p></td>
+<td><p>Write the model name file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.set_output_attribute" title="gsflow.modflow.mf.Modflow.set_output_attribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_output_attribute</span></code></a>(self[, fname, unit, attr])</p></td>
+<td><p>Set a variable in an output file from the model by specifying either the file name or the unit number and a dictionary with attributes to change.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.to_shapefile" title="gsflow.modflow.mf.Modflow.to_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_shapefile</span></code></a>(self, filename[, package_names])</p></td>
+<td><p>Wrapper function for writing a shapefile for the model grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.write_input" title="gsflow.modflow.mf.Modflow.write_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_input</span></code></a>(self[, SellPackList, check])</p></td>
+<td><p>Write the input.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mf.Modflow.write_name_file" title="gsflow.modflow.mf.Modflow.write_name_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_name_file</span></code></a>(self)</p></td>
+<td><p>Write the model name file</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 73%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>get_ext_dict_attr</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_ifrefm</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_nrow_ncol_nlay_nper</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>load_results</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>next_unit</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_ifrefm</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_version</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>update_modelgrid</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_existing_package">
+<code class="sig-name descname">add_existing_package</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">ptype=None</em>, <em class="sig-param">copy_to_model_ws=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_existing_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an existing package to a model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the name of the file to add as a package</p>
+</dd>
+<dt><strong>ptype</strong><span class="classifier">optional</span></dt><dd><p>the model package type (e.g. “lpf”, “wel”, etc).  If None,
+then the file extension of the filename arg is used</p>
+</dd>
+<dt><strong>copy_to_model_ws</strong><span class="classifier">bool</span></dt><dd><p>flag to copy the package file into the model_ws directory.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_external">
+<code class="sig-name descname">add_external</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname</em>, <em class="sig-param">unit</em>, <em class="sig-param">binflag=False</em>, <em class="sig-param">output=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_external" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign an external array so that it will be listed as a DATA or
+DATA(BINARY) entry in the name file.  This will allow an outside
+file package to refer to it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of external array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of external array</p>
+</dd>
+<dt><strong>binflag</strong><span class="classifier">boolean</span></dt><dd><p>binary or not. (default is False)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_output">
+<code class="sig-name descname">add_output</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname</em>, <em class="sig-param">unit</em>, <em class="sig-param">binflag=False</em>, <em class="sig-param">package=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign an external array so that it will be listed as a DATA or
+DATA(BINARY) entry in the name file.  This will allow an outside
+file package to refer to it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of external array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of external array</p>
+</dd>
+<dt><strong>binflag</strong><span class="classifier">boolean</span></dt><dd><p>binary or not. (default is False)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_output_file">
+<code class="sig-name descname">add_output_file</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">unit</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">extension='cbc'</em>, <em class="sig-param">binflag=True</em>, <em class="sig-param">package=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_output_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an ascii or binary output file for a package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of external array</p>
+</dd>
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of external array. (default is None)</p>
+</dd>
+<dt><strong>extension</strong><span class="classifier">str</span></dt><dd><p>extension to use for the cell-by-cell file. Only used if fname
+is None. (default is cbc)</p>
+</dd>
+<dt><strong>binflag</strong><span class="classifier">bool</span></dt><dd><p>boolean flag indicating if the output file is a binary file.
+Default is True</p>
+</dd>
+<dt><strong>package</strong><span class="classifier">str</span></dt><dd><p>string that defines the package the output file is attached to.
+Default is None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_package">
+<code class="sig-name descname">add_package</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>p</strong><span class="classifier">Package object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.add_pop_key_list">
+<code class="sig-name descname">add_pop_key_list</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.add_pop_key_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a external file unit number to a list that will be used to remove
+model output (typically binary) files from ext_unit_dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>key</strong><span class="classifier">int</span></dt><dd><p>file unit number</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.change_model_ws">
+<code class="sig-name descname">change_model_ws</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">new_pth=None</em>, <em class="sig-param">reset_external=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.change_model_ws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.change_model_ws" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the model work space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>new_pth</strong><span class="classifier">str</span></dt><dd><p>Location of new model workspace.  If this path does not exist,
+it will be created. (default is None, which will be assigned to
+the present working directory).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.check">
+<code class="sig-name descname">check</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f=None</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">level=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check model data for common errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str or file handle</span></dt><dd><p>String defining file name or file handle for summary file
+of check method output. If a string is passed a file handle
+is created. If f is None, check method does not write
+results to a summary file. (default is None)</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>Boolean flag used to determine if check method results are
+written to the screen</p>
+</dd>
+<dt><strong>level</strong><span class="classifier">int</span></dt><dd><p>Check method analysis level. If level=0, summary checks are
+performed. If level=1, full checks are performed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">flopy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.nam&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to export a model to netcdf or shapefile based on the
+extension of the file name (.shp for shapefile, .nc for netcdf)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>filename</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">keyword arguments</span></dt><dd><dl class="simple">
+<dt>modelgrid<span class="classifier">flopy.discretization.Grid instance</span></dt><dd><p>user supplied modelgrid which can be used for exporting
+in lieu of the modelgrid associated with the model object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None or Netcdf object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.get_name_file_entries">
+<code class="sig-name descname">get_name_file_entries</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.get_name_file_entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string representation of the name file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.get_output">
+<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an output file from the model by specifying either the
+file name or the unit number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of output array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of output array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.get_output_attribute">
+<code class="sig-name descname">get_output_attribute</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">unit=None</em>, <em class="sig-param">attr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.get_output_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a attribute for an output file from the model by specifying either
+the file name or the unit number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of output array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of output array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.get_package">
+<code class="sig-name descname">get_package</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.get_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the package, ‘RIV’, ‘LPF’, etc. (case-insensitive).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pp</strong><span class="classifier">Package object</span></dt><dd><p>Package object of type <code class="xref py py-class docutils literal notranslate"><span class="pre">flopy.pakbase.Package</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.get_package_list">
+<code class="sig-name descname">get_package_list</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ftype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.get_package_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all the package names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ftype</strong><span class="classifier">str</span></dt><dd><p>Type of package, ‘RIV’, ‘LPF’, etc.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>val</strong><span class="classifier">list of strings</span></dt><dd><p>Can be used to see what packages are in the model, and can then
+be used with get_package to pull out individual packages.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.has_package">
+<code class="sig-name descname">has_package</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.has_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if package name is in package list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the package, ‘DIS’, ‘BAS6’, etc. (case-insensitive).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>bool</dt><dd><p>True if package name exists, otherwise False if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.load">
+<em class="property">static </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">version='mfnwt'</em>, <em class="sig-param">exe_name='mfnwt.exe'</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">model_ws='.'</em>, <em class="sig-param">load_only=None</em>, <em class="sig-param">forgive=False</em>, <em class="sig-param">check=True</em>, <em class="sig-param">control_file=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an existing MODFLOW model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>Path to MODFLOW name file to load.</p>
+</dd>
+<dt><strong>version</strong><span class="classifier">str, optional</span></dt><dd><p>MODFLOW version. Default ‘mfnwt’, although can be modified on
+loading packages unique to different MODFLOW versions.</p>
+</dd>
+<dt><strong>exe_name</strong><span class="classifier">str, optional</span></dt><dd><p>MODFLOW executable name. Default ‘mfnwt.exe’.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool, optional</span></dt><dd><p>Show messages that can be useful for debugging. Default False.</p>
+</dd>
+<dt><strong>model_ws</strong><span class="classifier">str</span></dt><dd><p>Model workspace path. Default ‘.’ or current directory.</p>
+</dd>
+<dt><strong>load_only</strong><span class="classifier">list, str or None</span></dt><dd><p>List of case insensitive filetypes to load, e.g. [“bas6”, “lpf”].
+One package can also be specified, e.g. “rch”. Default is None,
+which attempts to load all files. An empty list [] will not load
+any additional packages than is necessary. At a minimum, “dis” or
+“disu” is always loaded.</p>
+</dd>
+<dt><strong>forgive</strong><span class="classifier">bool, optional</span></dt><dd><p>Option to raise exceptions on package load failure, which can be
+useful for debugging. Default False.</p>
+</dd>
+<dt><strong>check</strong><span class="classifier">boolean, optional</span></dt><dd><p>Check model input for common errors. Default True.</p>
+</dd>
+<dt><strong>control_file</strong><span class="classifier">str, optional</span></dt><dd><p>For using GSFLOW, providing a control file helps to adjust the paths on
+the fly</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ml</strong><span class="classifier">Modflow object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.nam&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.model_ws">
+<em class="property">property </em><code class="sig-name descname">model_ws</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.model_ws" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modflow model’s base directory path</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get model name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>name of model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.ncol">
+<em class="property">property </em><code class="sig-name descname">ncol</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.ncol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of columns in the model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.ncpl">
+<em class="property">property </em><code class="sig-name descname">ncpl</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.ncpl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of cells per layer in the model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.next_ext_unit">
+<code class="sig-name descname">next_ext_unit</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.next_ext_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to encapsulate next_ext_unit attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.nper">
+<em class="property">property </em><code class="sig-name descname">nper</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.nper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of stress periods in the model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.nrow">
+<em class="property">property </em><code class="sig-name descname">nrow</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.nrow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of model rows</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">SelPackList=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot 2-D, 3-D, transient 2-D, and stress period list (MfList)
+model input data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>SelPackList</strong><span class="classifier">bool or list</span></dt><dd><p>List of of packages to plot. If SelPackList=None all packages
+are plotted. (default is None)</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><dl class="simple">
+<dt>filename_base<span class="classifier">str</span></dt><dd><p>Base file name that will be used to automatically generate file
+names for output image files. Plots will be exported as image
+files if file_name_base is not None. (default is None)</p>
+</dd>
+<dt>file_extension<span class="classifier">str</span></dt><dd><p>Valid matplotlib.pyplot file extension for savefig(). Only used
+if filename_base is not None. (default is ‘png’)</p>
+</dd>
+<dt>mflay<span class="classifier">int</span></dt><dd><p>MODFLOW zero-based layer number to return.  If None, then all
+all layers will be included. (default is None)</p>
+</dd>
+<dt>kper<span class="classifier">int</span></dt><dd><p>MODFLOW zero-based stress period number to return.
+(default is zero)</p>
+</dd>
+<dt>key<span class="classifier">str</span></dt><dd><p>MfList dictionary key. (default is None)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>axes</strong><span class="classifier">list</span></dt><dd><p>Empty list is returned if filename_base is not None. Otherwise
+a list of matplotlib.pyplot.axis are returned.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test.nam&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.remove_external">
+<code class="sig-name descname">remove_external</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.remove_external" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an external file from the model by specifying either the
+file name or the unit number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of external array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of external array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.remove_output">
+<code class="sig-name descname">remove_output</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.remove_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an output file from the model by specifying either the
+file name or the unit number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of output array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of output array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.remove_package">
+<code class="sig-name descname">remove_package</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">pname</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.remove_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a package from this model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pname</strong><span class="classifier">string</span></dt><dd><p>Name of the package, such as ‘RIV’, ‘BAS6’, etc.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.run_model">
+<code class="sig-name descname">run_model</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">silent=False</em>, <em class="sig-param">pause=False</em>, <em class="sig-param">report=False</em>, <em class="sig-param">normal_msg='normal termination'</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.run_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will run the model using subprocess.Popen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>silent</strong><span class="classifier">boolean</span></dt><dd><p>Echo run information to screen (default is True).</p>
+</dd>
+<dt><strong>pause</strong><span class="classifier">boolean, optional</span></dt><dd><p>Pause upon completion (default is False).</p>
+</dd>
+<dt><strong>report</strong><span class="classifier">boolean, optional</span></dt><dd><p>Save stdout lines to a list (buff) which is returned
+by the method . (default is False).</p>
+</dd>
+<dt><strong>normal_msg</strong><span class="classifier">str</span></dt><dd><p>Normal termination message used to determine if the
+run terminated normally. (default is ‘normal termination’)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(success, buff)</dt><dd></dd>
+<dt><strong>success</strong><span class="classifier">boolean</span></dt><dd></dd>
+<dt><strong>buff</strong><span class="classifier">list of lines of stdout</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.set_model_units">
+<code class="sig-name descname">set_model_units</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">iunit0=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flopy/modflow/mf.html#Modflow.set_model_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.set_model_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the model name file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.set_output_attribute">
+<code class="sig-name descname">set_output_attribute</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">unit=None</em>, <em class="sig-param">attr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mf.Modflow.set_output_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a variable in an output file from the model by specifying either
+the file name or the unit number and a dictionary with attributes
+to change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename of output array</p>
+</dd>
+<dt><strong>unit</strong><span class="classifier">int</span></dt><dd><p>unit number of output array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.to_shapefile">
+<code class="sig-name descname">to_shapefile</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">package_names=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.to_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.to_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function for writing a shapefile for the model grid.  If
+package_names is not None, then search through the requested packages
+looking for arrays that can be added to the shapefile as attributes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">string</span></dt><dd><p>name of the shapefile to write</p>
+</dd>
+<dt><strong>package_names</strong><span class="classifier">list of package names (e.g. [“dis”,”lpf”])</span></dt><dd><p>Packages to export data arrays to shapefile. (default is None)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">to_shapefile</span><span class="p">(</span><span class="s1">&#39;model.shp&#39;</span><span class="p">,</span> <span class="n">SelPackList</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.version2">
+<em class="property">property </em><code class="sig-name descname">version2</code><a class="headerlink" href="#gsflow.modflow.mf.Modflow.version2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Secondary version information about modflow</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.write_input">
+<code class="sig-name descname">write_input</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">SellPackList=False</em>, <em class="sig-param">check=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.write_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.write_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>SelPackList</strong><span class="classifier">False or list of packages</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.modflow.mf.Modflow.write_name_file">
+<code class="sig-name descname">write_name_file</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modflow/mf.html#Modflow.write_name_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modflow.mf.Modflow.write_name_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the model name file</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="prms_model.html" class="btn btn-neutral float-right" title="gsflow.prms.prms_model Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gsflow.html" class="btn btn-neutral float-left" title="gsflow.gsflow Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

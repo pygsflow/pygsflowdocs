@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>What is pyGSFLOW? &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/introduction.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial Examples" href="tutorials.html" />
+    <link rel="prev" title="Welocme to the pyGSFLOW Documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#tutorial-examples">Tutorial Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorial Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code.html">pyGSFLOW API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is pyGSFLOW?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="what-is-pygsflow">
+<h1>What is pyGSFLOW?<a class="headerlink" href="#what-is-pygsflow" title="Permalink to this headline">¶</a></h1>
+<p>The pyGSFLOW package is a library of Python modules to load, edit, and run the GSFLOW integrated hydrologic model program.
+pyGSFLOW enables the user to programatically change their model inputs and run the updated model with a set of scripts.
+The pyGSFLOW project was started in 2016 and has been refined into a fully featured package. pyGSFLOW is now on version 1.0.1.</p>
+<p>Return to the Github <a class="reference external" href="https://github.com/pygsflow/pygsflow">pyGSFLOW</a> website</p>
+</div>
+<div class="section" id="pygsflow-installation">
+<h1>pyGSFLOW installation<a class="headerlink" href="#pygsflow-installation" title="Permalink to this headline">¶</a></h1>
+<p>To install pyGSFLOW from a command line, terminal, or anaconda prompt run the command:</p>
+<p>pip install pygsflow</p>
+<p>or</p>
+<p>pip install <a class="reference external" href="https://github.com/pygsflow/pygsflow/zipball/master">https://github.com/pygsflow/pygsflow/zipball/master</a></p>
+<p>To install the development version with the most recent updates run:</p>
+<p>pip install <a class="reference external" href="https://github.com/pygsflow/pygsflow/zipball/develop">https://github.com/pygsflow/pygsflow/zipball/develop</a></p>
+</div>
+<div class="section" id="pygsflow-dependencies">
+<h1>pyGSFLOW dependencies<a class="headerlink" href="#pygsflow-dependencies" title="Permalink to this headline">¶</a></h1>
+<p>pyGSFLOW relies heavily on FloPy for modflow IO capabilities. <a class="reference external" href="https://github.com/modflowpy/flopy">FloPy</a> .
+pyGSFLOW also extends these capabilities for working with GSFLOW models and input challenges specific to GSFLOW.</p>
+<dl class="simple">
+<dt>flopy can be installed by typing:</dt><dd><p>pip install flopy</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="tutorial-examples">
+<h1>Tutorial Examples<a class="headerlink" href="#tutorial-examples" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#pygsflow-quickstart-tutorials">pyGSFLOW Quickstart Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#pygsflow-discretization-and-plotting">pyGSFLOW Discretization and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#pygsflow-stream-vectors">pyGSFLOW stream vectors</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-notebooks">
+<h1>Example Notebooks<a class="headerlink" href="#example-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>Jupyter Notebook examples can be found in the pyGSFLOW repository in the <a class="reference external" href="https://github.com/pygsflow/pygsflow/tree/master/examples">examples</a> directory</p>
+</div>
+<div class="section" id="pygsflow-development-team">
+<h1>pyGSFLOW Development Team<a class="headerlink" href="#pygsflow-development-team" title="Permalink to this headline">¶</a></h1>
+<p>pyGSFLOW is currently being developed by</p>
+<ul class="simple">
+<li><p>Joshua Larsen</p></li>
+<li><p>Ayman Alzraiee</p></li>
+<li><p>Donald Martin</p></li>
+<li><p>Rich Niswonger</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-cite-pygsflow">
+<h1>How to Cite pyGSFLOW<a class="headerlink" href="#how-to-cite-pygsflow" title="Permalink to this headline">¶</a></h1>
+<p>Larsen, J. D., Alzraiee, A., Niswonger, R., 2021, pyGSFLOW v1.0.0: U.S. Geological Survey Software Release, 2 July 2021, <a class="reference external" href="https://doi.org/10.5066/P9NPZ5AD">https://doi.org/10.5066/P9NPZ5AD</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorial Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welocme to the pyGSFLOW Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

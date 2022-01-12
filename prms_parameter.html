@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.prms.prms_parameter Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/prms_parameter.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.modflow.mfag Module" href="mfag.html" />
+    <link rel="prev" title="gsflow.prms.prms_help Module" href="prms_help.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="prms_model.html">gsflow.prms.prms_model Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_data.html">gsflow.prms.prms_data Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_help.html">gsflow.prms.prms_help Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.prms.prms_parameter Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.prms.prms_parameter Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/prms_parameter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.prms.prms_parameter">
+<span id="gsflow-prms-prms-parameter-module"></span><h1>gsflow.prms.prms_parameter Module<a class="headerlink" href="#module-gsflow.prms.prms_parameter" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.prms.prms_parameter.ParameterRecord">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.prms.prms_parameter.</code><code class="sig-name descname">ParameterRecord</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">values=None</em>, <em class="sig-param">dimensions=None</em>, <em class="sig-param">datatype=None</em>, <em class="sig-param">width=10</em>, <em class="sig-param">file_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#ParameterRecord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.ParameterRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>ParameterRecord is a class for storing parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>parameter values</p>
+</dd>
+<dt><strong>dimensions</strong><span class="classifier">list</span></dt><dd><p>dimensions of the record</p>
+</dd>
+<dt><strong>datatype</strong><span class="classifier">int</span></dt><dd><p>datatype flag of the record</p>
+</dd>
+<dt><strong>width</strong><span class="classifier">int, optional</span></dt><dd></dd>
+<dt><strong>file_name</strong><span class="classifier">str</span></dt><dd><p>parameter file to write the parameter to</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.prms.prms_parameter.ParameterRecord.nvalues" title="gsflow.prms.prms_parameter.ParameterRecord.nvalues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nvalues</span></code></a></dt><dd><p>Returns the number of values in the record</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.prms.prms_parameter.ParameterRecord.values" title="gsflow.prms.prms_parameter.ParameterRecord.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a></dt><dd><p>np.ndarray of record values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.ParameterRecord.export_nc" title="gsflow.prms.prms_parameter.ParameterRecord.export_nc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_nc</span></code></a>(self, f, modflow, \*\*kwargs)</p></td>
+<td><p>Method to export netcdf</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.ParameterRecord.write" title="gsflow.prms.prms_parameter.ParameterRecord.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self, fid)</p></td>
+<td><p>Method to write to an open file</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>from_dict</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>to_dict</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.ParameterRecord.export_nc">
+<code class="sig-name descname">export_nc</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em>, <em class="sig-param">modflow</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#ParameterRecord.export_nc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.ParameterRecord.export_nc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to export netcdf</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str or fp.export.NetCdf</span></dt><dd><p>filename to write the parameter to (<a href="#id1"><span class="problematic" id="id2">*</span></a>.nc)</p>
+</dd>
+<dt><strong>modflow</strong><span class="classifier">object</span></dt><dd><p>fp.modflow.Modflow or gsflow.modflow.Modflow object</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">dict</span></dt><dd><p>keyword arguments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>NetCdf export relies on flopy, so at the moment will
+only work for GSFLOW models where PRMS has the same
+discretization as the modflow grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.ParameterRecord.nvalues">
+<em class="property">property </em><code class="sig-name descname">nvalues</code><a class="headerlink" href="#gsflow.prms.prms_parameter.ParameterRecord.nvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of values in the record</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.ParameterRecord.values">
+<em class="property">property </em><code class="sig-name descname">values</code><a class="headerlink" href="#gsflow.prms.prms_parameter.ParameterRecord.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>np.ndarray of record values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.ParameterRecord.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#ParameterRecord.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.ParameterRecord.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to write to an open file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fid</strong><span class="classifier">File object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.prms.prms_parameter.</code><code class="sig-name descname">PrmsParameters</code><span class="sig-paren">(</span><em class="sig-param">parameters_list</em>, <em class="sig-param">header=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to hold PRMS parameter information.
+This class enables reading, writing, and editing PRMS parameter files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameters_list</strong><span class="classifier">list</span></dt><dd><p>list of ParameterRecord objects</p>
+</dd>
+<dt><strong>headers</strong><span class="classifier">str, optional</span></dt><dd><p>file header</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Load parameters from file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">prms</span><span class="o">.</span><span class="n">PrmsParameters</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">([</span><span class="s2">&quot;myparams1.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;myparams2.txt&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>create a new PrmsParameters object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">prms</span><span class="o">.</span><span class="n">PrmsParameters</span><span class="p">([</span><span class="n">parameter_record1</span><span class="p">,</span> <span class="n">parameter_record2</span><span class="p">,])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.parameter_files" title="gsflow.prms.prms_parameter.PrmsParameters.parameter_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameter_files</span></code></a></dt><dd><p>Returns a list of parameter file names</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.parameters_list" title="gsflow.prms.prms_parameter.PrmsParameters.parameters_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameters_list</span></code></a></dt><dd><p>Returns a list of parameter records</p>
+</dd>
+<dt><strong>record_names</strong></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record" title="gsflow.prms.prms_parameter.PrmsParameters.add_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_record</span></code></a>(self, name[, values, dimensions, …])</p></td>
+<td><p>Method to add a new parameter record to the PrmsParameters object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record_object" title="gsflow.prms.prms_parameter.PrmsParameters.add_record_object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_record_object</span></code></a>(self, record_obj[, replace])</p></td>
+<td><p>Method to add a ParameterRecord object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.export_nc" title="gsflow.prms.prms_parameter.PrmsParameters.export_nc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_nc</span></code></a>(self, f, modflow, \*\*kwargs)</p></td>
+<td><p>Method to export a PrmsParameters object to netcdf (.nc) file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.get_record" title="gsflow.prms.prms_parameter.PrmsParameters.get_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_record</span></code></a>(self, name)</p></td>
+<td><p>Method to get a parameter record by name</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.get_values" title="gsflow.prms.prms_parameter.PrmsParameters.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>(self, name)</p></td>
+<td><p>Method to get values from a parameter</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.load_from_file" title="gsflow.prms.prms_parameter.PrmsParameters.load_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_file</span></code></a>(param_files)</p></td>
+<td><p>Create a PrmsParameters object from parameter file(s)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.remove_record" title="gsflow.prms.prms_parameter.PrmsParameters.remove_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_record</span></code></a>(self, name)</p></td>
+<td><p>Method to remove a parameter record</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.set_values" title="gsflow.prms.prms_parameter.PrmsParameters.set_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_values</span></code></a>(self, name, values)</p></td>
+<td><p>Method to set values to an existing parameter</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.write" title="gsflow.prms.prms_parameter.PrmsParameters.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self[, name])</p></td>
+<td><p>Method to write the PrmsParameters object to PRMS parameter files</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.add_record">
+<code class="sig-name descname">add_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">values=None</em>, <em class="sig-param">dimensions=None</em>, <em class="sig-param">datatype=None</em>, <em class="sig-param">width=10</em>, <em class="sig-param">file_name=None</em>, <em class="sig-param">where=None</em>, <em class="sig-param">after=None</em>, <em class="sig-param">replace=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.add_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add a new parameter record to the PrmsParameters object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>parameter values</p>
+</dd>
+<dt><strong>dimensions</strong><span class="classifier">list</span></dt><dd><p>parameter dimensions</p>
+</dd>
+<dt><strong>datatype</strong><span class="classifier">int</span></dt><dd><p>datatype flag</p>
+</dd>
+<dt><strong>width</strong><span class="classifier">int, optional</span></dt><dd></dd>
+<dt><strong>file_name</strong><span class="classifier">str</span></dt><dd><p>filename parameter will be written to</p>
+</dd>
+<dt><strong>where</strong><span class="classifier">int, optional</span></dt><dd><p>index location to insert parameter</p>
+</dd>
+<dt><strong>after</strong><span class="classifier">int, optional</span></dt><dd><p>index location - 1 to insert parameter</p>
+</dd>
+<dt><strong>replace</strong><span class="classifier">bool</span></dt><dd><p>replace an existing parameter when True, default is False</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.add_record_object">
+<code class="sig-name descname">add_record_object</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">record_obj</em>, <em class="sig-param">replace=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.add_record_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add a ParameterRecord object</p>
+<dl class="simple">
+<dt>record_obj<span class="classifier">ParameterRecord object</span></dt><dd><p>ParameterRecord object</p>
+</dd>
+<dt>replace<span class="classifier">bool</span></dt><dd><p>boolean flag that allows record replacement, default is False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.export_nc">
+<code class="sig-name descname">export_nc</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em>, <em class="sig-param">modflow</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.export_nc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.export_nc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to export a PrmsParameters object
+to netcdf (.nc) file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str or fp.export.NetCdf</span></dt><dd><p>filename to write the parameter to (<a href="#id3"><span class="problematic" id="id4">*</span></a>.nc)</p>
+</dd>
+<dt><strong>modflow</strong><span class="classifier">object</span></dt><dd><p>fp.modflow.Modflow or gsflow.modflow.Modflow object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>NetCdf export relies on flopy, so at the moment will
+only work for GSFLOW models where PRMS has the same
+discretization as the modflow grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.get_record">
+<code class="sig-name descname">get_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.get_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.get_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get a parameter record by name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.get_values">
+<code class="sig-name descname">get_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get values from a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.array</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.load_from_file">
+<em class="property">static </em><code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">param_files</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PrmsParameters object from parameter file(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>param_files</strong><span class="classifier">list</span></dt><dd><p>list of parameter files</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>PrmsParameters</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.parameter_files">
+<em class="property">property </em><code class="sig-name descname">parameter_files</code><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.parameter_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of parameter file names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.parameters_list">
+<em class="property">property </em><code class="sig-name descname">parameters_list</code><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.parameters_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of parameter records</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.remove_record">
+<code class="sig-name descname">remove_record</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.remove_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to remove a parameter record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name: str</strong></dt><dd><p>parameter name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.set_values">
+<code class="sig-name descname">set_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.set_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set values to an existing parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>parameter name</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">list</span></dt><dd><p>list of values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to write the PrmsParameters object to PRMS parameter files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str, optional</span></dt><dd><p>file name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="mfag.html" class="btn btn-neutral float-right" title="gsflow.modflow.mfag Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prms_help.html" class="btn btn-neutral float-left" title="gsflow.prms.prms_help Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jan 11, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
