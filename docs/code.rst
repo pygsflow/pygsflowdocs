@@ -63,6 +63,22 @@ Contents:
    :maxdepth: 2
 
    modsim
+   
+Builder Classes
+---------------
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   builder_defaults
+   builder_utils
+   controlfile_builder
+   fishnet
+   flow_accumulation
+   modflow_builder
+   prms_builder
+
 
 Model Output Utilities
 ----------------------
