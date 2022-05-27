@@ -1,6 +1,6 @@
-gsflow.builder.modflow_builder Module
-=====================================
+gsflow.builder.prms_builder Module
+==================================
 
-.. automodule:: gsflow.builder.modflow_builder
+.. automodule:: gsflow.builder.prms_builder
    :members:
    :inherited-members:
