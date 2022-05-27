@@ -2,7 +2,7 @@ What is pyGSFLOW?
 =================
 The pyGSFLOW package is a library of Python modules to load, edit, and run the GSFLOW integrated hydrologic model program.
 pyGSFLOW enables the user to programatically change their model inputs and run the updated model with a set of scripts. 
-The pyGSFLOW project was started in 2016 and has been refined into a fully featured package. pyGSFLOW is now on version 1.0.2.
+The pyGSFLOW project was started in 2016 and has been refined into a fully featured package. pyGSFLOW is now on version 1.1.0.
 
 Return to the Github `pyGSFLOW <https://github.com/pygsflow/pygsflow>`_ website
 
@@ -54,4 +54,6 @@ pyGSFLOW is currently being developed by
 
 How to Cite pyGSFLOW
 ====================
+Larsen, J. D., Alzraiee, A., Niswonger, R., 2022, Integrated hydrologic model development and postprocessing for GSFLOW using pyGSFLOW. Journal of Open Source Software, 7(72), 3852. `https://doi.org/10.21105/joss.03852 <https://doi.org/10.21105/joss.03852>`_
+
 Larsen, J. D., Alzraiee, A., Niswonger, R., 2021, pyGSFLOW v1.0.0: U.S. Geological Survey Software Release, 2 July 2021, `https://doi.org/10.5066/P9NPZ5AD <https://doi.org/10.5066/P9NPZ5AD>`_

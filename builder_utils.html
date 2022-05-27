@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.builder.builder_utils Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/builder_utils.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.builder.controlfile_builder Module" href="controlfile_builder.html" />
+    <link rel="prev" title="gsflow.builder.builder_defaults Module" href="builder_defaults.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="builder_defaults.html">gsflow.builder.builder_defaults Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.builder.builder_utils Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_builder.html">gsflow.builder.controlfile_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fishnet.html">gsflow.builder.fishnet Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow_accumulation.html">gsflow.builder.flow_accumulation Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modflow_builder.html">gsflow.builder.modflow_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_builder.html">gsflow.builder.prms_builder Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.builder.builder_utils Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/builder_utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.builder.builder_utils">
+<span id="gsflow-builder-builder-utils-module"></span><h1>gsflow.builder.builder_utils Module<a class="headerlink" href="#module-gsflow.builder.builder_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.add_prms_date_columns_to_df">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">add_prms_date_columns_to_df</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">column</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#add_prms_date_columns_to_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.add_prms_date_columns_to_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add date columns for PRMS to a pandas dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>df</strong><span class="classifier">pd.DataFrame</span></dt><dd></dd>
+<dt><strong>column</strong><span class="classifier">str</span></dt><dd><p>date column name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>pd.Dataframe</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.build_lut">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">build_lut</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">dtype=&lt;class 'int'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#build_lut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.build_lut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load a remap file into a lut</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>file name</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">type</span></dt><dd><p>int or float type, defaults to int</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.calculate_jensen_haise">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">calculate_jensen_haise</code><span class="sig-paren">(</span><em class="sig-param">dem</em>, <em class="sig-param">tmin_mean</em>, <em class="sig-param">tmax_mean</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#calculate_jensen_haise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.calculate_jensen_haise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the Jensen Haise coefficient for PRMS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dem</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>tmin_mean</strong><span class="classifier">np.ndarray</span></dt><dd><p>list of monthly mean values for tmin</p>
+</dd>
+<dt><strong>tmax_mean</strong><span class="classifier">np.ndarray</span></dt><dd><p>array of monthly mean values for tmax</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.carea_max">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">carea_max</code><span class="sig-paren">(</span><em class="sig-param">resampled_imperv</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#carea_max"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.carea_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set carea_max parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>resampled_imperv</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.covden_sum">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">covden_sum</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#covden_sum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.covden_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation coverage to PRMS covden_sum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.covden_win">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">covden_win</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#covden_win"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.covden_win" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation coverage to PRMS covden_win</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.covtype">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">covtype</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#covtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.covtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation type to PRMS covtype</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.d8_to_hru_aspect">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">d8_to_hru_aspect</code><span class="sig-paren">(</span><em class="sig-param">flow_directions</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#d8_to_hru_aspect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.d8_to_hru_aspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get cell aspect from a D8 flow accumulation array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>flow_directions</strong><span class="classifier">np.ndarray</span></dt><dd><p>numpy array of flow directions</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object of aspect angles (0 - 360 deg)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.d8_to_hru_slope">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">d8_to_hru_slope</code><span class="sig-paren">(</span><em class="sig-param">flow_directions</em>, <em class="sig-param">dem</em>, <em class="sig-param">xcenters</em>, <em class="sig-param">ycenters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#d8_to_hru_slope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.d8_to_hru_slope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate slopes from a D8 flow accumulation array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>flow_directions</strong><span class="classifier">np.ndarray</span></dt><dd><p>2d numpy array of flow directions</p>
+</dd>
+<dt><strong>dem</strong><span class="classifier">np.ndarray</span></dt><dd><p>2d numpy array of dem elevations</p>
+</dd>
+<dt><strong>xcenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>modelgrid x-centers</p>
+</dd>
+<dt><strong>ycenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>modelgrid y-centers</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.ea">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">ea</code><span class="sig-paren">(</span><em class="sig-param">tempc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#ea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.ea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate ea for Jensen Haise equation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tempc</strong><span class="classifier">np.ndarray</span></dt><dd><p>monthly mean temperatures</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.fahrenheit_to_celsius">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">fahrenheit_to_celsius</code><span class="sig-paren">(</span><em class="sig-param">deg_f</em>, <em class="sig-param">nodataval=-999.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#fahrenheit_to_celsius"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.fahrenheit_to_celsius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to convert fahrenheit to celsius</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deg_f</strong><span class="classifier">float, np.ndarray</span></dt><dd></dd>
+<dt><strong>nodataval</strong><span class="classifier">float</span></dt><dd><p>value of nodata instances</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>float, np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.get_mean_monthly_from_df">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">get_mean_monthly_from_df</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">column</em>, <em class="sig-param">nodataval=-999</em>, <em class="sig-param">temperature=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#get_mean_monthly_from_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.get_mean_monthly_from_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate mean monthly values from a dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>df</strong><span class="classifier">pd.Dataframe</span></dt><dd></dd>
+<dt><strong>column</strong><span class="classifier">str</span></dt><dd><p>data column name</p>
+</dd>
+<dt><strong>nodataval</strong><span class="classifier">float</span></dt><dd><p>no data value (sets to nan when calculating</p>
+</dd>
+<dt><strong>temperature</strong><span class="classifier">bool</span></dt><dd><p>boolean flag to indicate this is temperature (does not sum())</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.hru_percent_imperv">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">hru_percent_imperv</code><span class="sig-paren">(</span><em class="sig-param">resampled_imperv</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#hru_percent_imperv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.hru_percent_imperv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set hru_percent_imperv parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>resampled_imperv</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.rad_trncf">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">rad_trncf</code><span class="sig-paren">(</span><em class="sig-param">covden_win</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#rad_trncf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.rad_trncf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate rad_trncf from the covden_win parameter values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>covden_win</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.rain_adj">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">rain_adj</code><span class="sig-paren">(</span><em class="sig-param">resampled_ppt</em>, <em class="sig-param">mean_monthly_sta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#rain_adj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.rain_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate rain_adj from a single station</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>resampled_ppt</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>mean_monthly_sta</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.root_depth">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">root_depth</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#root_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.root_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get a rooting depth from cover type. This is an intermediate
+array used to calculate other parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">d</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray of rooting depths</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.slowcoef_lin">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">slowcoef_lin</code><span class="sig-paren">(</span><em class="sig-param">ksat</em>, <em class="sig-param">aspect</em>, <em class="sig-param">dx</em>, <em class="sig-param">dy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#slowcoef_lin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.slowcoef_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the slowcoef_lin parameter in prms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ksat</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>aspect</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>dx</strong><span class="classifier">float</span></dt><dd><p>grid dx dimension for a single cell</p>
+</dd>
+<dt><strong>dy</strong><span class="classifier">float</span></dt><dd><p>grid dy dimension for a single cell</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.slowcoef_sq">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">slowcoef_sq</code><span class="sig-paren">(</span><em class="sig-param">ksat</em>, <em class="sig-param">aspect</em>, <em class="sig-param">sand</em>, <em class="sig-param">soil_moist_max</em>, <em class="sig-param">dx</em>, <em class="sig-param">dy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#slowcoef_sq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.slowcoef_sq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the slowcoef_lin parameter in prms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ksat</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>aspect</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>sand</strong><span class="classifier">np.ndarray</span></dt><dd><p>fraction of sand in soil</p>
+</dd>
+<dt><strong>soil_moist_max</strong><span class="classifier">np.ndarray</span></dt><dd><p>soil moist max</p>
+</dd>
+<dt><strong>dx</strong><span class="classifier">float</span></dt><dd><p>grid dx dimension for a single cell</p>
+</dd>
+<dt><strong>dy</strong><span class="classifier">float</span></dt><dd><p>grid dy dimension for a single cell</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.snow_adj">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">snow_adj</code><span class="sig-paren">(</span><em class="sig-param">resampled_ppt</em>, <em class="sig-param">mean_monthly_sta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#snow_adj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.snow_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate rain_adj from a single station</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>resampled_ppt</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>mean_monthly_sta</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.snow_intcp">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">snow_intcp</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#snow_intcp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.snow_intcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation type to PRMS snow_intcp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.soil_moist_init">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">soil_moist_init</code><span class="sig-paren">(</span><em class="sig-param">soil_moist_max</em>, <em class="sig-param">factor=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#soil_moist_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.soil_moist_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the soil_rech_init parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>soil_moist_max</strong><span class="classifier">np.ndarray</span></dt><dd><p>maximum soil moisture water content</p>
+</dd>
+<dt><strong>factor</strong><span class="classifier">float</span></dt><dd><p>scaling factor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.soil_moist_max">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">soil_moist_max</code><span class="sig-paren">(</span><em class="sig-param">awc</em>, <em class="sig-param">root_depth</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#soil_moist_max"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.soil_moist_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the soil_moist_max parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>awc</strong><span class="classifier">np.ndarray</span></dt><dd><p>available water content</p>
+</dd>
+<dt><strong>root_depth</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.soil_rech_init">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">soil_rech_init</code><span class="sig-paren">(</span><em class="sig-param">soil_rech_max</em>, <em class="sig-param">factor=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#soil_rech_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.soil_rech_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the soil_rech_init parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>soil_rech_max</strong><span class="classifier">np.ndarray</span></dt><dd><p>maximum recharge water content</p>
+</dd>
+<dt><strong>factor</strong><span class="classifier">float</span></dt><dd><p>scaling factor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.soil_rech_max">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">soil_rech_max</code><span class="sig-paren">(</span><em class="sig-param">awc</em>, <em class="sig-param">root_depth</em>, <em class="sig-param">max_depth=18</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#soil_rech_max"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.soil_rech_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the soil_rech_max parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>awc</strong><span class="classifier">np.ndarray</span></dt><dd><p>available water content</p>
+</dd>
+<dt><strong>root_depth</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>max_depth</strong><span class="classifier">float</span></dt><dd><p>maximum rooting depth to calculate recharge (default 18)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.soil_type">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">soil_type</code><span class="sig-paren">(</span><em class="sig-param">clay</em>, <em class="sig-param">sand</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#soil_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.soil_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to determine soil type from resampled clay and sand percentages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>clay</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>sand</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.srain_intcp">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">srain_intcp</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#srain_intcp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.srain_intcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation type to PRMS srain_intcp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.ssr2gw_exp">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">ssr2gw_exp</code><span class="sig-paren">(</span><em class="sig-param">nhru</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#ssr2gw_exp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.ssr2gw_exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the ssr2gw_sq for PRMS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nhru</strong><span class="classifier">int</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.ssr2gw_rate">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">ssr2gw_rate</code><span class="sig-paren">(</span><em class="sig-param">ksat</em>, <em class="sig-param">sand</em>, <em class="sig-param">soil_moist_max</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#ssr2gw_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.ssr2gw_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate the ssr2gw_rate from ksat (inches/day) and % sand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ksat</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>sand</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>soil_moist_max</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.tmax_adj">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">tmax_adj</code><span class="sig-paren">(</span><em class="sig-param">nhru</em>, <em class="sig-param">nmonths=12</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#tmax_adj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.tmax_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate tmax_adj from a single station
+Parameters
+———-
+nhru : int
+nmonths : np.ndarray
+Returns
+——-</p>
+<blockquote>
+<div><p>gsflow.prms.ParameterRecord object</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.tmax_lapse">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">tmax_lapse</code><span class="sig-paren">(</span><em class="sig-param">lapse_rates</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#tmax_lapse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.tmax_lapse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate tmax_lapse parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>lapse_rates</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.tmin_adj">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">tmin_adj</code><span class="sig-paren">(</span><em class="sig-param">nhru</em>, <em class="sig-param">nmonths=12</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#tmin_adj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.tmin_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate tmin_adj from a single station
+Parameters
+———-
+nhru : int
+nmonths : np.ndarray
+Returns
+——-</p>
+<blockquote>
+<div><p>gsflow.prms.ParameterRecord object</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.tmin_lapse">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">tmin_lapse</code><span class="sig-paren">(</span><em class="sig-param">lapse_rates</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#tmin_lapse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.tmin_lapse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate tmax_lapse parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>lapse_rates</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="gsflow.builder.builder_utils.wrain_intcp">
+<code class="sig-prename descclassname">gsflow.builder.builder_utils.</code><code class="sig-name descname">wrain_intcp</code><span class="sig-paren">(</span><em class="sig-param">cov_resampled</em>, <em class="sig-param">lut</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/builder_utils.html#wrain_intcp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.builder_utils.wrain_intcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to associate resampled vegitation type to PRMS wrain_intcp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cov_resampled</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+<dt><strong>lut</strong><span class="classifier">dict</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.prms.ParameterRecord object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="controlfile_builder.html" class="btn btn-neutral float-right" title="gsflow.builder.controlfile_builder Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="builder_defaults.html" class="btn btn-neutral float-left" title="gsflow.builder.builder_defaults Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on May 27, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

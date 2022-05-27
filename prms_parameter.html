@@ -118,6 +118,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
 </ul>
@@ -388,10 +389,13 @@ This class enables reading, writing, and editing PRMS parameter files.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.remove_record" title="gsflow.prms.prms_parameter.PrmsParameters.remove_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_record</span></code></a>(self, name)</p></td>
 <td><p>Method to remove a parameter record</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.set_values" title="gsflow.prms.prms_parameter.PrmsParameters.set_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_values</span></code></a>(self, name, values)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.reset_filenames" title="gsflow.prms.prms_parameter.PrmsParameters.reset_filenames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_filenames</span></code></a>(self, f)</p></td>
+<td><p>Method to reset all filenames in the PrmsParameter object to a single user supplied filename</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.set_values" title="gsflow.prms.prms_parameter.PrmsParameters.set_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_values</span></code></a>(self, name, values)</p></td>
 <td><p>Method to set values to an existing parameter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.write" title="gsflow.prms.prms_parameter.PrmsParameters.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self[, name])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.prms.prms_parameter.PrmsParameters.write" title="gsflow.prms.prms_parameter.PrmsParameters.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self[, name])</p></td>
 <td><p>Method to write the PrmsParameters object to PRMS parameter files</p></td>
 </tr>
 </tbody>
@@ -427,12 +431,12 @@ This class enables reading, writing, and editing PRMS parameter files.</p>
 
 <dl class="method">
 <dt id="gsflow.prms.prms_parameter.PrmsParameters.add_record_object">
-<code class="sig-name descname">add_record_object</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">record_obj</em>, <em class="sig-param">replace=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.add_record_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record_object" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_record_object</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">record_obj</em>, <em class="sig-param">replace=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.add_record_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.add_record_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to add a ParameterRecord object</p>
 <dl class="simple">
 <dt>record_obj<span class="classifier">ParameterRecord object</span></dt><dd><p>ParameterRecord object</p>
 </dd>
-<dt>replace<span class="classifier">bool</span></dt><dd><p>boolean flag that allows record replacement, default is False</p>
+<dt>replace<span class="classifier">bool</span></dt><dd><p>boolean flag that allows record replacement, default is True</p>
 </dd>
 </dl>
 </dd></dl>
@@ -542,6 +546,20 @@ discretization as the modflow grid</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="gsflow.prms.prms_parameter.PrmsParameters.reset_filenames">
+<code class="sig-name descname">reset_filenames</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.reset_filenames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.reset_filenames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to reset all filenames in the PrmsParameter object
+to a single user supplied filename</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="gsflow.prms.prms_parameter.PrmsParameters.set_values">
 <code class="sig-name descname">set_values</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/prms/prms_parameter.html#PrmsParameters.set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.prms.prms_parameter.PrmsParameters.set_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to set values to an existing parameter</p>
@@ -590,7 +608,7 @@ discretization as the modflow grid</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Feb 22, 2022.
+        Last updated on May 27, 2022.
       </span>
 
     </p>

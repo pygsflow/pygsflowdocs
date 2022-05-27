@@ -117,6 +117,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
 </ul>
@@ -305,7 +306,10 @@ from the MODFLOW-NWT AG package.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mfawu.ModflowAwu.to_shapefile" title="gsflow.modflow.mfawu.ModflowAwu.to_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_shapefile</span></code></a>(self, filename, \*\*kwargs)</p></td>
 <td><p>Export 2-D, 3-D, and transient 2-D model data to shapefile (polygons).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mfawu.ModflowAwu.write_file" title="gsflow.modflow.mfawu.ModflowAwu.write_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_file</span></code></a>(self[, check])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modflow.mfawu.ModflowAwu.webdoc" title="gsflow.modflow.mfawu.ModflowAwu.webdoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">webdoc</span></code></a>(self)</p></td>
+<td><p>Open the web documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.modflow.mfawu.ModflowAwu.write_file" title="gsflow.modflow.mfawu.ModflowAwu.write_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_file</span></code></a>(self[, check])</p></td>
 <td><p>Write method for ModflowAg</p></td>
 </tr>
 </tbody>
@@ -317,9 +321,6 @@ from the MODFLOW-NWT AG package.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>level1_arraylist</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>webdoc</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -562,6 +563,12 @@ Adds an attribute for each layer in each data array</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="gsflow.modflow.mfawu.ModflowAwu.webdoc">
+<code class="sig-name descname">webdoc</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mfawu.ModflowAwu.webdoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the web documentation.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="gsflow.modflow.mfawu.ModflowAwu.write_file">
 <code class="sig-name descname">write_file</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">check=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.modflow.mfawu.ModflowAwu.write_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write method for ModflowAg</p>
@@ -594,7 +601,7 @@ Adds an attribute for each layer in each data array</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Feb 22, 2022.
+        Last updated on May 27, 2022.
       </span>
 
     </p>

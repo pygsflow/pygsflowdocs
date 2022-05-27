@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.builder.flow_accumulation Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/flow_accumulation.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.builder.modflow_builder Module" href="modflow_builder.html" />
+    <link rel="prev" title="gsflow.builder.fishnet Module" href="fishnet.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="builder_defaults.html">gsflow.builder.builder_defaults Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="builder_utils.html">gsflow.builder.builder_utils Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_builder.html">gsflow.builder.controlfile_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fishnet.html">gsflow.builder.fishnet Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.builder.flow_accumulation Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modflow_builder.html">gsflow.builder.modflow_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_builder.html">gsflow.builder.prms_builder Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.builder.flow_accumulation Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/flow_accumulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.builder.flow_accumulation">
+<span id="gsflow-builder-flow-accumulation-module"></span><h1>gsflow.builder.flow_accumulation Module<a class="headerlink" href="#module-gsflow.builder.flow_accumulation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.builder.flow_accumulation.</code><code class="sig-name descname">FlowAccumulation</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">xcenters</em>, <em class="sig-param">ycenters</em>, <em class="sig-param">acc_type='d8'</em>, <em class="sig-param">hru_type=None</em>, <em class="sig-param">closed_basin=False</em>, <em class="sig-param">flow_dir_array=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to perform flow accumulation on a DEM (raster) or resampled to
+a model grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">np.ndarray</span></dt><dd><p>two dimensional numpy array of dem data</p>
+</dd>
+<dt><strong>xcenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>a two dimensional array of x coordinate cell centers</p>
+</dd>
+<dt><strong>ycenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>two dimensional array of y coordinate cell centers</p>
+</dd>
+<dt><strong>acc_type</strong><span class="classifier">str</span></dt><dd><p>flow accumulation type, currently supported options are “d8”</p>
+</dd>
+<dt><strong>hru_type</strong><span class="classifier">np.array</span></dt><dd><p>optional numpy array of hru type numbers that can be used as
+a masking array to exclude lakes, swales, etc…
+0 == inactive
+1 == land (included in flow accumulation)
+2 == lake (excluded from flow accumulation)
+3 == swale (excluded from flow accumulation)</p>
+</dd>
+<dt><strong>closed_basin</strong><span class="classifier">bool</span></dt><dd><p>method to indicate that basin is closed without considering lake
+flow. If true hru_type 2 is used in the flow direction calculations.
+False ignores hru_type 2.</p>
+</dd>
+<dt><strong>flow_dir_array</strong><span class="classifier">np.ndarray</span></dt><dd><p>previously calculated flow direction array of dimension nrow, ncol
+that can be supplied to FlowAccumulation</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>flag to print verbose output</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_vectors" title="gsflow.builder.flow_accumulation.FlowAccumulation.get_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vectors</span></code></a></dt><dd><p>Method to get flow vectors array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.define_subbasins" title="gsflow.builder.flow_accumulation.FlowAccumulation.define_subbasins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">define_subbasins</span></code></a>(self, pour_points, modelgrid)</p></td>
+<td><p>Method to perform sub-basin delineation on the flow direction array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.define_watershed" title="gsflow.builder.flow_accumulation.FlowAccumulation.define_watershed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">define_watershed</span></code></a>(self, pour_point, modelgrid)</p></td>
+<td><p>Method to perform watershed delineation on the flow direction array</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.flow_accumulation" title="gsflow.builder.flow_accumulation.FlowAccumulation.flow_accumulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flow_accumulation</span></code></a>(self)</p></td>
+<td><p>NIDP method to calculate the flow accumulation array using</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.flow_directions" title="gsflow.builder.flow_accumulation.FlowAccumulation.flow_directions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flow_directions</span></code></a>(self[, dijkstra, breach])</p></td>
+<td><p>Method to get flow directions array</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_cascades" title="gsflow.builder.flow_accumulation.FlowAccumulation.get_cascades"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cascades</span></code></a>(self, streams[, pour_point, …])</p></td>
+<td><p>Method to calculate cascade parameters for PRMS</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_dem_data" title="gsflow.builder.flow_accumulation.FlowAccumulation.get_dem_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dem_data</span></code></a>(self)</p></td>
+<td><p>Method to get processed DEM data after flow accumulation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.load_cascades" title="gsflow.builder.flow_accumulation.FlowAccumulation.load_cascades"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_cascades</span></code></a>(f)</p></td>
+<td><p>Method to load a saved binary cascades file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.load_streams" title="gsflow.builder.flow_accumulation.FlowAccumulation.load_streams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_streams</span></code></a>(f)</p></td>
+<td><p>Method to load a saved binary streams file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.flow_accumulation.FlowAccumulation.make_streams" title="gsflow.builder.flow_accumulation.FlowAccumulation.make_streams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_streams</span></code></a>(self, fdir_array, fa_array, …)</p></td>
+<td><p>Method to make streams for both PRMS and MODFLOW SFR</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>get_hru_type</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.define_subbasins">
+<code class="sig-name descname">define_subbasins</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">pour_points</em>, <em class="sig-param">modelgrid</em>, <em class="sig-param">fmt='rowcol'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.define_subbasins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.define_subbasins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to perform sub-basin delineation on the flow direction array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pour_points</strong><span class="classifier">str, tuple</span></dt><dd><p>pour point can be supplied as either a shapefile, a list with an
+[(x, y)] tuple of coordinates, or as the model zero based
+[(row, column)] location.</p>
+</dd>
+<dt><strong>modelgrid</strong><span class="classifier">flopy.discretization.StructuredGrid</span></dt><dd><p>structured grid instance from flopy</p>
+</dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>format of the pour point information. Acceptable types include
+“xy”, “rowcol”, and “shp”</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>np.ndarray</strong><span class="classifier">delinated array of the watershed (1 is active,</span></dt><dd></dd>
+<dt>0 is inactive)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.define_watershed">
+<code class="sig-name descname">define_watershed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">pour_point</em>, <em class="sig-param">modelgrid</em>, <em class="sig-param">fmt='rowcol'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.define_watershed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.define_watershed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to perform watershed delineation on the flow direction array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pour_point</strong><span class="classifier">str, tuple</span></dt><dd><p>pour point can be supplied as either a shapefile, a list with an
+[(x, y)] tuple of coordinates, or as the model zero based
+[(row, column)] location.</p>
+</dd>
+<dt><strong>modelgrid</strong><span class="classifier">flopy.discretization.StructuredGrid</span></dt><dd><p>structured grid instance from flopy</p>
+</dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>format of the pour point information. Acceptable types include
+“xy”, “rowcol”, and “shp”</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>np.ndarray</strong><span class="classifier">delinated array of the watershed (1 is active,</span></dt><dd></dd>
+<dt>0 is inactive)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.flow_accumulation">
+<code class="sig-name descname">flow_accumulation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.flow_accumulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.flow_accumulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>NIDP method to calculate the flow accumulation array using</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>np.ndarray of flow directions</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.flow_directions">
+<code class="sig-name descname">flow_directions</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">dijkstra=False</em>, <em class="sig-param">breach=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.flow_directions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.flow_directions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get flow directions array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dijkstra</strong><span class="classifier">bool</span></dt><dd><p>method to use a modified dijkstra algorithmn to solve
+tricky flat areas. Default is False and uses a distance based
+topology method to solve flat areas.</p>
+</dd>
+<dt><strong>breach</strong><span class="classifier">float</span></dt><dd><p>absolute value of breaching tolerance for digital dams. Use
+caution while applying breaching values. These should be small
+numbers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray of flow directions</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.get_cascades">
+<code class="sig-name descname">get_cascades</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">streams</em>, <em class="sig-param">pour_point=None</em>, <em class="sig-param">modelgrid=None</em>, <em class="sig-param">fmt='rowcol'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.get_cascades"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_cascades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate cascade parameters for PRMS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>streams</strong><span class="classifier">_StreamsObj</span></dt><dd><p>Stream information object returned from the
+FlowAccumulation.make_streams method</p>
+</dd>
+<dt><strong>pour_point</strong><span class="classifier">list, str</span></dt><dd><p>optional, but required if watershed deliniation has not been run
+prior to running get_cascades. pour point can be supplied as either
+a shapefile, a list with an [(x, y)] tuple of coordinates,
+or as the model zero based [(row, column)] location.</p>
+</dd>
+<dt><strong>modelgrid</strong><span class="classifier">flopy.discretization.StructuredGrid</span></dt><dd></dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>format of the pour point information. Acceptable types include
+“xy”, “rowcol”, and “shp”</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>_Cascades object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.get_dem_data">
+<code class="sig-name descname">get_dem_data</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.get_dem_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_dem_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get processed DEM data after flow accumulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>np.ndarray</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.get_vectors">
+<em class="property">property </em><code class="sig-name descname">get_vectors</code><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.get_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get flow vectors array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(u, v): tuple (np.ndarray of flow vectors)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.load_cascades">
+<em class="property">static </em><code class="sig-name descname">load_cascades</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.load_cascades"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.load_cascades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load a saved binary cascades file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>file name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>_Cascades</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.load_streams">
+<em class="property">static </em><code class="sig-name descname">load_streams</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.load_streams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.load_streams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load a saved binary streams file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>file name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>_StreamsObj</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.flow_accumulation.FlowAccumulation.make_streams">
+<code class="sig-name descname">make_streams</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fdir_array</em>, <em class="sig-param">fa_array</em>, <em class="sig-param">threshold</em>, <em class="sig-param">min_stream_len=None</em>, <em class="sig-param">max_reach=None</em>, <em class="sig-param">default_slope=0.001</em>, <em class="sig-param">min_slope=0.0001</em>, <em class="sig-param">max_slope=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/flow_accumulation.html#FlowAccumulation.make_streams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.flow_accumulation.FlowAccumulation.make_streams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to make streams for both PRMS and MODFLOW SFR</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fdir_array</strong><span class="classifier">np.ndarray</span></dt><dd><p>flow direction array</p>
+</dd>
+<dt><strong>fa_array</strong><span class="classifier">np.ndarray</span></dt><dd><p>flow accumulation array</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>accumulated area threshold for defining streams</p>
+</dd>
+<dt><strong>min_stream_len</strong><span class="classifier">int</span></dt><dd><p>optional minimum stream length in number of cells</p>
+</dd>
+<dt><strong>max_reach</strong><span class="classifier">int</span></dt><dd><p>optional maximum number of reach cells per segment</p>
+</dd>
+<dt><strong>default_slope</strong><span class="classifier">float</span></dt><dd><p>default slope value for setting SFR slope of all cells</p>
+</dd>
+<dt><strong>min_slope</strong><span class="classifier">float</span></dt><dd><p>minimum slope calculated by make streams for SFR</p>
+</dd>
+<dt><strong>max_slope</strong><span class="classifier">float</span></dt><dd><p>maximum SFR slope calculated by make streams</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>_StreamsObj</strong><span class="classifier">object containing SFR and PRMS stream information</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modflow_builder.html" class="btn btn-neutral float-right" title="gsflow.builder.modflow_builder Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fishnet.html" class="btn btn-neutral float-left" title="gsflow.builder.fishnet Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on May 27, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

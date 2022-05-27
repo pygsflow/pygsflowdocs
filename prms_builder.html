@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>gsflow.output.prms_output Module &mdash; pygsflow 1.0.1 documentation</title>
+  <title>gsflow.builder.prms_builder Module &mdash; pygsflow 1.0.1 documentation</title>
   
 
   
@@ -19,7 +19,7 @@
 
   
   
-    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/prms_output.html"/>
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/prms_builder.html"/>
   
 
   
@@ -42,8 +42,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gsflow.output.prms_plot Module" href="prms_plot.html" />
-    <link rel="prev" title="gsflow.output.discretization Module" href="discretization.html" /> 
+    <link rel="next" title="gsflow.output.discretization Module" href="discretization.html" />
+    <link rel="prev" title="gsflow.builder.modflow_builder Module" href="modflow_builder.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,13 +112,17 @@
 <li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="discretization.html">gsflow.output.discretization Module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.output.prms_output Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prms_plot.html">gsflow.output.prms_plot Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="builder_defaults.html">gsflow.builder.builder_defaults Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="builder_utils.html">gsflow.builder.builder_utils Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_builder.html">gsflow.builder.controlfile_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fishnet.html">gsflow.builder.fishnet Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow_accumulation.html">gsflow.builder.flow_accumulation Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modflow_builder.html">gsflow.builder.modflow_builder Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.builder.prms_builder Module</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
 </ul>
 </li>
@@ -172,13 +176,13 @@
         
           <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
         
-      <li>gsflow.output.prms_output Module</li>
+      <li>gsflow.builder.prms_builder Module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/prms_output.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/prms_builder.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -215,35 +219,34 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="module-gsflow.output.prms_output">
-<span id="gsflow-output-prms-output-module"></span><h1>gsflow.output.prms_output Module<a class="headerlink" href="#module-gsflow.output.prms_output" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-gsflow.builder.prms_builder">
+<span id="gsflow-builder-prms-builder-module"></span><h1>gsflow.builder.prms_builder Module<a class="headerlink" href="#module-gsflow.builder.prms_builder" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="gsflow.output.prms_output.StatVar">
-<em class="property">class </em><code class="sig-prename descclassname">gsflow.output.prms_output.</code><code class="sig-name descname">StatVar</code><span class="sig-paren">(</span><em class="sig-param">statvar_file</em>, <em class="sig-param">statvar_names=None</em>, <em class="sig-param">statvar_elements=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_output.html#StatVar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_output.StatVar" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to read in the statvar file into a pandas Dataframe</p>
+<dt id="gsflow.builder.prms_builder.PrmsBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.builder.prms_builder.</code><code class="sig-name descname">PrmsBuilder</code><span class="sig-paren">(</span><em class="sig-param">stream_data_obj</em>, <em class="sig-param">cascades_obj</em>, <em class="sig-param">modelgrid</em>, <em class="sig-param">dem</em>, <em class="sig-param">hru_type=None</em>, <em class="sig-param">hru_subbasin=None</em>, <em class="sig-param">defaults=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/prms_builder.html#PrmsBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.prms_builder.PrmsBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for building PrmsParameter object using built in Defaults</p>
+<p>PrmsBuilder builds a PrmsParameter object using default values
+from gsflow.builder.Defaults or a user supplied Defaults object.</p>
+<p>The user can then edit the PrmsParameter object to customize their
+model runs and add climate, land cover, and soils information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>statvar_file</strong><span class="classifier">str</span></dt><dd><p>name of the stat var file</p>
+<dt><strong>stream_data_obj</strong><span class="classifier">gsflow.builder._StreamsObj</span></dt><dd><p>stream data from the flow accumulation make_streams() method</p>
 </dd>
-<dt><strong>statvar_names</strong><span class="classifier">list, optional</span></dt><dd><p>statvar_names will be determined from file if None</p>
+<dt><strong>cascade_obj</strong><span class="classifier">gsflow.builder._Cascades object</span></dt><dd><p>cascade data object from the flow accumulation get_cascades() method</p>
 </dd>
-<dt><strong>statvar_elements</strong><span class="classifier">list, optional</span></dt><dd><p>statvar_elements will be determined from file if None</p>
+<dt><strong>modelgrid</strong><span class="classifier">flopy.discretization.StructuredGrid object</span></dt><dd></dd>
+<dt><strong>hru_type</strong><span class="classifier">np.ndarray</span></dt><dd><p>hru_type array</p>
+</dd>
+<dt><strong>hru_subbasin</strong><span class="classifier">np.ndarray</span></dt><dd><p>hru_subbasin array</p>
+</dd>
+<dt><strong>defaults</strong><span class="classifier">gsflow.builder.Defaults object</span></dt><dd><p>optional gsflow.builder.Defaults object to build the PrmsParameters
+object with.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>load from a control file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gsflow</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">control</span> <span class="o">=</span> <span class="n">gsflow</span><span class="o">.</span><span class="n">ControlFile</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;gsflow.gsflow&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">StatVar</span><span class="o">.</span><span class="n">load_from_control_object</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>load from a statistics file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">StatVar</span><span class="p">(</span><span class="s2">&quot;mystatvar.txt&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -251,37 +254,31 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.output.prms_output.StatVar.load_from_control_object" title="gsflow.output.prms_output.StatVar.load_from_control_object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_control_object</span></code></a>(control)</p></td>
-<td><p>Load the statvar from a ControlFile object</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.output.prms_output.StatVar.plot" title="gsflow.output.prms_output.StatVar.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self)</p></td>
-<td><p>Built in plotting method for the statvar object.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.prms_builder.PrmsBuilder.build" title="gsflow.builder.prms_builder.PrmsBuilder.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>(self[, name, area_conv])</p></td>
+<td><p>Method to build a PrmsParameters object that can be used to build a GSFLOW or PRMS model</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="gsflow.output.prms_output.StatVar.load_from_control_object">
-<em class="property">static </em><code class="sig-name descname">load_from_control_object</code><span class="sig-paren">(</span><em class="sig-param">control</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_output.html#StatVar.load_from_control_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_output.StatVar.load_from_control_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load the statvar from a ControlFile object</p>
+<dt id="gsflow.builder.prms_builder.PrmsBuilder.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name=None</em>, <em class="sig-param">area_conv=0.000247105</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/prms_builder.html#PrmsBuilder.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.prms_builder.PrmsBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a PrmsParameters object that can be used to build
+a GSFLOW or PRMS model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>control</strong><span class="classifier">ControlFile object</span></dt><dd></dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>name of the parameter file</p>
+</dd>
+<dt><strong>area_conv</strong><span class="classifier">float</span></dt><dd><p>conversion factor from model units sq. to arces</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>StatVar object</dt><dd></dd>
+<dt>gsflow.prms.parameters.PrmsParameters object</dt><dd></dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="gsflow.output.prms_output.StatVar.plot">
-<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/output/prms_output.html#StatVar.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.output.prms_output.StatVar.plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Built in plotting method for the statvar object. Uses
-pandas built ins.</p>
 </dd></dl>
 
 </dd></dl>
@@ -294,8 +291,8 @@ pandas built ins.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="prms_plot.html" class="btn btn-neutral float-right" title="gsflow.output.prms_plot Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="discretization.html" class="btn btn-neutral float-left" title="gsflow.output.discretization Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="discretization.html" class="btn btn-neutral float-right" title="gsflow.output.discretization Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modflow_builder.html" class="btn btn-neutral float-left" title="gsflow.builder.modflow_builder Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

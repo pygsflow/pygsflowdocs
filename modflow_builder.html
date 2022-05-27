@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.builder.modflow_builder Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/modflow_builder.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.builder.prms_builder Module" href="prms_builder.html" />
+    <link rel="prev" title="gsflow.builder.flow_accumulation Module" href="flow_accumulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="builder_defaults.html">gsflow.builder.builder_defaults Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="builder_utils.html">gsflow.builder.builder_utils Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_builder.html">gsflow.builder.controlfile_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fishnet.html">gsflow.builder.fishnet Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow_accumulation.html">gsflow.builder.flow_accumulation Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.builder.modflow_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_builder.html">gsflow.builder.prms_builder Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.builder.modflow_builder Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/modflow_builder.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.builder.modflow_builder">
+<span id="gsflow-builder-modflow-builder-module"></span><h1>gsflow.builder.modflow_builder Module<a class="headerlink" href="#module-gsflow.builder.modflow_builder" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.builder.modflow_builder.</code><code class="sig-name descname">ModflowBuilder</code><span class="sig-paren">(</span><em class="sig-param">modelgrid</em>, <em class="sig-param">dem_data</em>, <em class="sig-param">model_name</em>, <em class="sig-param">defaults=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for building Modflow model objects using built in Defaults.</p>
+<p>ModflowBuilder builds a steady state model using default values
+from gsflow.builder.Defaults or a user supplied Defaults object.</p>
+<p>The user can then edit the Modflow package objects to customize
+their model runs. (ex. create transient model), etc…</p>
+<p>supported packages include : DIS, BAS, UPW, UZF, SFR, NWT, OC</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>modelgrid</strong><span class="classifier">gsflow.builder.FishnetGenerator</span></dt><dd><p>Structured grid object from FishnetGenerator or from
+flopy.discretization.StructuredGrid</p>
+</dd>
+<dt><strong>dem_data</strong><span class="classifier">np.ndarray</span></dt><dd><p>numpy array of dimension (nrow, ncol) of DEM elevations</p>
+</dd>
+<dt><strong>model_name</strong><span class="classifier">str</span></dt><dd><p>model name ex. “my_test_model”</p>
+</dd>
+<dt><strong>defaults</strong><span class="classifier">gsflow.builder.Defaults</span></dt><dd><p>optional parameter, user can supply a gsflow.builder.Defaults
+instance to ModflowBuilder to use a custom set of default values</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.model" title="gsflow.builder.modflow_builder.ModflowBuilder.model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model</span></code></a></dt><dd><p>Returns the gsflow.modflow.Modflow model object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_all" title="gsflow.builder.modflow_builder.ModflowBuilder.build_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_all</span></code></a>(self, reach_data, segment_data, …)</p></td>
+<td><p>Method to build all supported modflow packages</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_bas6" title="gsflow.builder.modflow_builder.ModflowBuilder.build_bas6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_bas6</span></code></a>(self[, ibound])</p></td>
+<td><p>Method to build the BAS6 package</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_dis" title="gsflow.builder.modflow_builder.ModflowBuilder.build_dis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_dis</span></code></a>(self[, botm])</p></td>
+<td><p>Method to build the dis package using defaults</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_nwt" title="gsflow.builder.modflow_builder.ModflowBuilder.build_nwt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_nwt</span></code></a>(self)</p></td>
+<td><p>Method to build a SIMPLE nwt solver instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_oc" title="gsflow.builder.modflow_builder.ModflowBuilder.build_oc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_oc</span></code></a>(self)</p></td>
+<td><p>Method to build a simple one stress period OC object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_sfr" title="gsflow.builder.modflow_builder.ModflowBuilder.build_sfr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_sfr</span></code></a>(self, reach_data, segment_data)</p></td>
+<td><p>Method to build a default version of the SFR package</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_upw" title="gsflow.builder.modflow_builder.ModflowBuilder.build_upw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_upw</span></code></a>(self)</p></td>
+<td><p>Method to build a default version of the UPW package</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_uzf" title="gsflow.builder.modflow_builder.ModflowBuilder.build_uzf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_uzf</span></code></a>(self, irunbnd[, finf, iuzfbnd])</p></td>
+<td><p>Method to build a UZF package object using built in defaults</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_all">
+<code class="sig-name descname">build_all</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">reach_data</em>, <em class="sig-param">segment_data</em>, <em class="sig-param">irunbnd</em>, <em class="sig-param">finf=None</em>, <em class="sig-param">botm=None</em>, <em class="sig-param">ibound=None</em>, <em class="sig-param">iuzfbnd=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build all supported modflow packages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>reach_data</strong><span class="classifier">np.recarray</span></dt><dd><p>flopy’s ModflowSfr2 reach data parameter</p>
+</dd>
+<dt><strong>segment_data</strong><span class="classifier">np.recarray</span></dt><dd><p>flopy’s ModflowSfr2 segment data parameter</p>
+</dd>
+<dt><strong>irunbnd</strong><span class="classifier">np.ndarray</span></dt><dd><p>flopy’s ModflowUZF1 irunbnd parameter
+(runoff connection to streams)</p>
+</dd>
+<dt><strong>finf</strong><span class="classifier">np.ndarray</span></dt><dd><p>UZF1’s finf array which describes precipitation for recharge</p>
+</dd>
+<dt><strong>botm</strong><span class="classifier">np.ndarray</span></dt><dd><p>bottom elevation for single layer model</p>
+</dd>
+<dt><strong>ibound</strong><span class="classifier">np.ndarray</span></dt><dd><p>ibound array of active model cells</p>
+</dd>
+<dt><strong>iuzfbnd</strong><span class="classifier">np.ndarray</span></dt><dd><p>uzf ibound array of active model cells</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>gsflow.modflow.Modflow object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_bas6">
+<code class="sig-name descname">build_bas6</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ibound=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_bas6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_bas6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build the BAS6 package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ibound</strong><span class="classifier">int, np.ndarray</span></dt><dd><p>array of active modflow cells within the model, &gt;0 for active, 0
+for inactive</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>flopy.modflow.ModflowBas object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_dis">
+<code class="sig-name descname">build_dis</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">botm=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_dis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_dis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build the dis package using defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>botm</strong><span class="classifier">float, int, np.ndarray</span></dt><dd><p>Model botm elevations for discretization file. If botm is None
+then botm elevation is set 50 length units below DEM elevation</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>flopy.modflow.ModflowDis object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_nwt">
+<code class="sig-name descname">build_nwt</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_nwt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_nwt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a SIMPLE nwt solver instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>flopy.modflow.ModflowNwt</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_oc">
+<code class="sig-name descname">build_oc</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_oc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_oc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a simple one stress period OC object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>flopy.modflow.ModflowOc</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_sfr">
+<code class="sig-name descname">build_sfr</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">reach_data</em>, <em class="sig-param">segment_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_sfr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_sfr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a default version of the SFR package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>reach_data</strong><span class="classifier">np.recarray</span></dt><dd><p>reach data recarray for ModflowSfr2</p>
+</dd>
+<dt><strong>segment_data</strong><span class="classifier">np.recarray</span></dt><dd><p>segment data recarray for ModflowSfr2</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>flopy.modflow.ModflowSfr2</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_upw">
+<code class="sig-name descname">build_upw</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_upw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_upw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a default version of the UPW package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>flopy.modflow.ModflowUpw</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.build_uzf">
+<code class="sig-name descname">build_uzf</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">irunbnd</em>, <em class="sig-param">finf=None</em>, <em class="sig-param">iuzfbnd=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/modflow_builder.html#ModflowBuilder.build_uzf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.build_uzf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to build a UZF package object using built in defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>irunbnd</strong><span class="classifier">np.ndarray</span></dt><dd><p>flopy’s ModflowUZF1 irunbnd parameter
+(runoff connection to streams)</p>
+</dd>
+<dt><strong>finf</strong><span class="classifier">np.ndarray</span></dt><dd><p>optional finf array of precipitation</p>
+</dd>
+<dt><strong>iuzfbnd</strong><span class="classifier">np.ndarray</span></dt><dd><p>uzf ibound array of active unsaturated zone model cells</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>flopy.modflow.ModflowUzf</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.modflow_builder.ModflowBuilder.model">
+<em class="property">property </em><code class="sig-name descname">model</code><a class="headerlink" href="#gsflow.builder.modflow_builder.ModflowBuilder.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the gsflow.modflow.Modflow model object</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="prms_builder.html" class="btn btn-neutral float-right" title="gsflow.builder.prms_builder Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="flow_accumulation.html" class="btn btn-neutral float-left" title="gsflow.builder.flow_accumulation Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on May 27, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1119 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>gsflow.builder.fishnet Module &mdash; pygsflow 1.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://pygsflow.github.io/pygsflowdocs/fishnet.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gsflow.builder.flow_accumulation Module" href="flow_accumulation.html" />
+    <link rel="prev" title="gsflow.builder.controlfile_builder Module" href="controlfile_builder.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pygsflow
+          
+
+          
+            
+            <img src="_static/motto2.PNG" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is pyGSFLOW?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-installation">pyGSFLOW installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-dependencies">pyGSFLOW dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#tutorial-examples">Tutorial Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#example-notebooks">Example Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#pygsflow-development-team">pyGSFLOW Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#how-to-cite-pygsflow">How to Cite pyGSFLOW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="code.html">pyGSFLOW API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html#base-classes">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-classes">Model Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#gsflow-classes">GSFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="builder_defaults.html">gsflow.builder.builder_defaults Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="builder_utils.html">gsflow.builder.builder_utils Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_builder.html">gsflow.builder.controlfile_builder Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.builder.fishnet Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow_accumulation.html">gsflow.builder.flow_accumulation Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modflow_builder.html">gsflow.builder.modflow_builder Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prms_builder.html">gsflow.builder.prms_builder Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygsflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="code.html">pyGSFLOW API</a> &raquo;</li>
+        
+      <li>gsflow.builder.fishnet Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/fishnet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-gsflow.builder.fishnet">
+<span id="gsflow-builder-fishnet-module"></span><h1>gsflow.builder.fishnet Module<a class="headerlink" href="#module-gsflow.builder.fishnet" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gsflow.builder.fishnet.GenerateFishnet">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.builder.fishnet.</code><code class="sig-name descname">GenerateFishnet</code><span class="sig-paren">(</span><em class="sig-param">bbox</em>, <em class="sig-param">xcellsize</em>, <em class="sig-param">ycellsize</em>, <em class="sig-param">buffer=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/fishnet.html#GenerateFishnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to build a fishnet model grid</p>
+<p>The GenerateFishnet class creates a flopy.discretization.StructuredGrid
+object from basic geospatial information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>bbox</strong><span class="classifier">shapefile, raster, [xmin, xmax, ymin, ymax]</span></dt><dd><p>bounding box for modelgrid. The bounding box can be a the extent read
+from a shapfile, the extent read in from a raster, or a list of
+[xmin, xmax, ymin, ymax]</p>
+</dd>
+<dt><strong>xcellsize</strong><span class="classifier">float</span></dt><dd><p>cell size in the x direction for fishnet</p>
+</dd>
+<dt><strong>ycellsize</strong><span class="classifier">float</span></dt><dd><p>cell size in the y direction for fishnet</p>
+</dd>
+<dt><strong>buffer</strong><span class="classifier">int</span></dt><dd><p>number of cells to buffer around the input geometry</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>angrot</strong></dt><dd></dd>
+<dt><strong>angrot_radians</strong></dt><dd></dd>
+<dt><strong>botm</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_vertices" title="gsflow.builder.fishnet.GenerateFishnet.cross_section_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_section_vertices</span></code></a></dt><dd><p>Get a set of xvertices and yvertices ordered by node</p>
+</dd>
+<dt><strong>delc</strong></dt><dd></dd>
+<dt><strong>delr</strong></dt><dd></dd>
+<dt><strong>delz</strong></dt><dd></dd>
+<dt><strong>epsg</strong></dt><dd></dd>
+<dt><strong>extent</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.grid_lines" title="gsflow.builder.fishnet.GenerateFishnet.grid_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_lines</span></code></a></dt><dd><p>Get the grid lines as a list</p>
+</dd>
+<dt><strong>grid_type</strong></dt><dd></dd>
+<dt><strong>idomain</strong></dt><dd></dd>
+<dt><strong>is_complete</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_rectilinear" title="gsflow.builder.fishnet.GenerateFishnet.is_rectilinear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_rectilinear</span></code></a></dt><dd><p>Test whether the grid is rectilinear (it is always so in the x and y directions, but not necessarily in the z direction).</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular" title="gsflow.builder.fishnet.GenerateFishnet.is_regular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular</span></code></a></dt><dd><p>Test if the grid spacing is regular and equal in x, y and z directions.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_x" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_x</span></code></a></dt><dd><p>Test whether the grid spacing is regular in the x direction.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_xy" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_xy</span></code></a></dt><dd><p>Test if the grid spacing is regular and equal in x and y directions.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_xz" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_xz</span></code></a></dt><dd><p>Test if the grid spacing is regular and equal in x and z directions.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_y" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_y</span></code></a></dt><dd><p>Test whether the grid spacing is regular in the y direction.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_yz" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_yz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_yz</span></code></a></dt><dd><p>Test if the grid spacing is regular and equal in y and z directions.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_z" title="gsflow.builder.fishnet.GenerateFishnet.is_regular_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular_z</span></code></a></dt><dd><p>Test if the grid spacing is regular in z direction.</p>
+</dd>
+<dt><strong>is_valid</strong></dt><dd></dd>
+<dt><strong>iverts</strong></dt><dd></dd>
+<dt><strong>laycbd</strong></dt><dd></dd>
+<dt><strong>lenuni</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.map_polygons" title="gsflow.builder.fishnet.GenerateFishnet.map_polygons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_polygons</span></code></a></dt><dd><p>Get a list of matplotlib Polygon patches for plotting</p>
+</dd>
+<dt><strong>ncol</strong></dt><dd></dd>
+<dt><strong>ncpl</strong></dt><dd></dd>
+<dt><strong>nlay</strong></dt><dd></dd>
+<dt><strong>nnodes</strong></dt><dd></dd>
+<dt><strong>nrow</strong></dt><dd></dd>
+<dt><strong>nvert</strong></dt><dd></dd>
+<dt><strong>prj</strong></dt><dd></dd>
+<dt><strong>proj4</strong></dt><dd></dd>
+<dt><strong>shape</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.thick" title="gsflow.builder.fishnet.GenerateFishnet.thick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thick</span></code></a></dt><dd><p>Get the cell thickness for a structured, vertex, or unstructured grid.</p>
+</dd>
+<dt><strong>top</strong></dt><dd></dd>
+<dt><strong>top_botm</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.top_botm_withnan" title="gsflow.builder.fishnet.GenerateFishnet.top_botm_withnan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">top_botm_withnan</span></code></a></dt><dd><p>Same as top_botm array but with NaN where idomain==0 both above and below a cell.</p>
+</dd>
+<dt><strong>units</strong></dt><dd></dd>
+<dt><strong>verts</strong></dt><dd></dd>
+<dt><strong>xcellcenters</strong></dt><dd></dd>
+<dt><strong>xoffset</strong></dt><dd></dd>
+<dt><strong>xvertices</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.xycenters" title="gsflow.builder.fishnet.GenerateFishnet.xycenters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xycenters</span></code></a></dt><dd><p>Return a list of two numpy one-dimensional float arrays for center x and y coordinates in model space - not offset or rotated.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.xyedges" title="gsflow.builder.fishnet.GenerateFishnet.xyedges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyedges</span></code></a></dt><dd><p>Return a list of two 1D numpy arrays: one with the cell edge x coordinate (size = ncol+1) and the other with the cell edge y coordinate (size = nrow+1) in model space - not offset or rotated.</p>
+</dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.xyzcellcenters" title="gsflow.builder.fishnet.GenerateFishnet.xyzcellcenters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyzcellcenters</span></code></a></dt><dd><p>Return a list of three numpy float arrays: two two-dimensional arrays for center x and y coordinates, and one three-dimensional array for center z coordinates.</p>
+</dd>
+<dt><strong>xyzextent</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.xyzvertices" title="gsflow.builder.fishnet.GenerateFishnet.xyzvertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyzvertices</span></code></a></dt><dd><p>Method to get all grid vertices in a layer</p>
+</dd>
+<dt><strong>ycellcenters</strong></dt><dd></dd>
+<dt><strong>yoffset</strong></dt><dd></dd>
+<dt><strong>yvertices</strong></dt><dd></dd>
+<dt><strong>zcellcenters</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.zedges" title="gsflow.builder.fishnet.GenerateFishnet.zedges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zedges</span></code></a></dt><dd><p>Return zedges for (column, row)==(0, 0).</p>
+</dd>
+<dt><strong>zvertices</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.zverts_smooth" title="gsflow.builder.fishnet.GenerateFishnet.zverts_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zverts_smooth</span></code></a></dt><dd><p>Get a unique z of cell vertices using bilinear interpolation of top and bottom elevation layers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_faces" title="gsflow.builder.fishnet.GenerateFishnet.array_at_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_at_faces</span></code></a>(self, a, direction[, withnan])</p></td>
+<td><p>Computes values at the center of cell faces using linear interpolation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_verts" title="gsflow.builder.fishnet.GenerateFishnet.array_at_verts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_at_verts</span></code></a>(self, a)</p></td>
+<td><p>Interpolate array values at cell vertices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_verts_basic" title="gsflow.builder.fishnet.GenerateFishnet.array_at_verts_basic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_at_verts_basic</span></code></a>(self, a)</p></td>
+<td><p>Computes values at cell vertices using neighbor averaging.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_adjust_indicies" title="gsflow.builder.fishnet.GenerateFishnet.cross_section_adjust_indicies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_section_adjust_indicies</span></code></a>(self, k, cbcnt)</p></td>
+<td><p>Method to get adjusted indicies by layer and confining bed for PlotCrossSection plotting</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_lay_ncpl_ncb" title="gsflow.builder.fishnet.GenerateFishnet.cross_section_lay_ncpl_ncb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_section_lay_ncpl_ncb</span></code></a>(self, ncb)</p></td>
+<td><p>Get PlotCrossSection compatible layers, ncpl, and ncb variables</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_nodeskip" title="gsflow.builder.fishnet.GenerateFishnet.cross_section_nodeskip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_section_nodeskip</span></code></a>(self, nlay, xypts)</p></td>
+<td><p>Get a nodeskip list for PlotCrossSection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_set_contour_arrays" title="gsflow.builder.fishnet.GenerateFishnet.cross_section_set_contour_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_section_set_contour_arrays</span></code></a>(self, …)</p></td>
+<td><p>Method to set countour array centers for rare instances where matplotlib contouring is prefered over trimesh plotting</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.from_binary_grid_file" title="gsflow.builder.fishnet.GenerateFishnet.from_binary_grid_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_binary_grid_file</span></code></a>(file_path[, verbose])</p></td>
+<td><p>Instantiate a StructuredGrid model grid from a MODFLOW 6 binary grid (<a href="#id1"><span class="problematic" id="id2">*</span></a>.grb) file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_gridspec</span></code>(gridspec_file[, lenuni])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_cell_vertices" title="gsflow.builder.fishnet.GenerateFishnet.get_cell_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cell_vertices</span></code></a>(self, \*args, \*\*kwargs)</p></td>
+<td><p>Method to get a set of cell vertices for a single cell</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_coords" title="gsflow.builder.fishnet.GenerateFishnet.get_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_coords</span></code></a>(self, x, y)</p></td>
+<td><p>Given x and y array-like values, apply rotation, scale and offset, to convert them from model coordinates to real-world coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_local_coords" title="gsflow.builder.fishnet.GenerateFishnet.get_local_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_local_coords</span></code></a>(self, x, y)</p></td>
+<td><p>Given x and y array-like values, apply rotation, scale and offset, to convert them from real-world coordinates to model coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_lrc" title="gsflow.builder.fishnet.GenerateFishnet.get_lrc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lrc</span></code></a>(self, nodes)</p></td>
+<td><p>Get layer, row, column from a list of zero based MODFLOW node numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_node" title="gsflow.builder.fishnet.GenerateFishnet.get_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_node</span></code></a>(self, lrc_list)</p></td>
+<td><p>Get node number from a list of zero based MODFLOW layer, row, column tuples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_number_plottable_layers" title="gsflow.builder.fishnet.GenerateFishnet.get_number_plottable_layers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_plottable_layers</span></code></a>(self, a)</p></td>
+<td><p>Calculate and return the number of 2d plottable arrays that can be obtained from the array passed (a)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.get_plottable_layer_shape" title="gsflow.builder.fishnet.GenerateFishnet.get_plottable_layer_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plottable_layer_shape</span></code></a>(self[, layer])</p></td>
+<td><p>Determine the shape that is required in order to plot a 2d array for this grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.intersect" title="gsflow.builder.fishnet.GenerateFishnet.intersect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersect</span></code></a>(self, x, y[, z, local, forgive])</p></td>
+<td><p>Get the row and column of a point with coordinates x and y</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.load_coord_info" title="gsflow.builder.fishnet.GenerateFishnet.load_coord_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_coord_info</span></code></a>(self[, namefile, reffile])</p></td>
+<td><p>Attempts to load spatial reference information from the following files (in order): 1) usgs.model.reference 2) NAM file (header comment) 3) defaults</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.load_from_file" title="gsflow.builder.fishnet.GenerateFishnet.load_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_from_file</span></code></a>(f)</p></td>
+<td><p>Method to load a binary modelgrid file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.plot" title="gsflow.builder.fishnet.GenerateFishnet.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self, \*\*kwargs)</p></td>
+<td><p>Plot the grid lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.read_usgs_model_reference_file" title="gsflow.builder.fishnet.GenerateFishnet.read_usgs_model_reference_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_usgs_model_reference_file</span></code></a>(self[, reffile])</p></td>
+<td><p>read spatial reference info from the usgs.model.reference file <a class="reference external" href="https://water.usgs.gov/ogw/policy/gw-model/modelers-setup.html">https://water.usgs.gov/ogw/policy/gw-model/modelers-setup.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.remove_confining_beds" title="gsflow.builder.fishnet.GenerateFishnet.remove_confining_beds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_confining_beds</span></code></a>(self, array)</p></td>
+<td><p>Method to remove confining bed layers from an array</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.saturated_thick" title="gsflow.builder.fishnet.GenerateFishnet.saturated_thick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">saturated_thick</span></code></a>(self, array[, mask])</p></td>
+<td><p>Get the saturated thickness for a structured, vertex, or unstructured grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.write" title="gsflow.builder.fishnet.GenerateFishnet.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self, f)</p></td>
+<td><p>Method to save a binary copy of the modelgrid for later use</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.builder.fishnet.GenerateFishnet.write_shapefile" title="gsflow.builder.fishnet.GenerateFishnet.write_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_shapefile</span></code></a>(self[, filename, epsg, prj])</p></td>
+<td><p>Write a shapefile of the grid with just the row and column attributes.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 76%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>attribs_from_namfile_header</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_plottable_layer_array</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_xcellcenters_for_layer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_xvertices_for_layer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_ycellcenters_for_layer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_yvertices_for_layer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_coord_info</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.array_at_faces">
+<code class="sig-name descname">array_at_faces</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">a</em>, <em class="sig-param">direction</em>, <em class="sig-param">withnan=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes values at the center of cell faces using linear interpolation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">ndarray</span></dt><dd><p>Values at cell centers, shape (nlay, row, ncol).</p>
+</dd>
+<dt><strong>direction</strong><span class="classifier">str, possible values are ‘x’, ‘y’ and ‘z’</span></dt><dd><p>Direction in which values will be interpolated at cell faces.</p>
+</dd>
+<dt><strong>withnan</strong><span class="classifier">bool</span></dt><dd><p>If True (default), the result value will be set to NaN where the
+cell face sits between inactive cells. If False, not.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>afaces</strong><span class="classifier">ndarray</span></dt><dd><p>Array values interpolated at cell vertices, shape as input extended
+by 1 along the specified direction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.array_at_verts">
+<code class="sig-name descname">array_at_verts</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_verts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate array values at cell vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">ndarray</span></dt><dd><p>Array values. Allowed shapes are: (nlay, nrow, ncol),
+(nlay, nrow, ncol+1), (nlay, nrow+1, ncol) and
+(nlay+1, nrow, ncol).
+* When the shape is (nlay, nrow, ncol), input values are
+considered at cell centers, and output values are computed by
+trilinear interpolation.
+* When the shape is extended in one direction, input values are
+considered at the center of cell faces in this direction, and
+output values are computed by bilinear interpolation in planes
+defined by these cell faces.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>averts</strong><span class="classifier">ndarray</span></dt><dd><p>Array values interpolated at cell vertices, shape
+(nlay+1, nrow+1, ncol+1).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Output values are smooth (continuous) even if top elevations or</p></li>
+</ul>
+<p>bottom elevations are not constant across layers (i.e., in this
+case, vertices of neighboring cells are implicitly merged).
+* NaN values are assigned in accordance with inactive cells defined
+by idomain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.array_at_verts_basic">
+<code class="sig-name descname">array_at_verts_basic</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.array_at_verts_basic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes values at cell vertices using neighbor averaging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">ndarray</span></dt><dd><p>Array values at cell centers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>averts</strong><span class="classifier">ndarray</span></dt><dd><p>Array values at cell vertices, shape
+(a.shape[0]+1, a.shape[1]+1, a.shape[2]+1). NaN values are assigned
+in accordance with inactive cells defined by idomain.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.cross_section_adjust_indicies">
+<code class="sig-name descname">cross_section_adjust_indicies</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">k</em>, <em class="sig-param">cbcnt</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_adjust_indicies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get adjusted indicies by layer and confining bed
+for PlotCrossSection plotting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>k</strong><span class="classifier">int</span></dt><dd><p>zero based layer number</p>
+</dd>
+<dt><strong>cbcnt</strong><span class="classifier">int</span></dt><dd><p>confining bed counter</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple: (int, int, int) (adjusted layer, nodeskip layer, node</dt><dd><p>adjustment value based on number of confining beds and the layer)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.cross_section_lay_ncpl_ncb">
+<code class="sig-name descname">cross_section_lay_ncpl_ncb</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ncb</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_lay_ncpl_ncb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get PlotCrossSection compatible layers, ncpl, and ncb
+variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ncb</strong><span class="classifier">int</span></dt><dd><p>number of confining beds</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tuple</strong><span class="classifier">(int, int, int) layers, ncpl, ncb</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.cross_section_nodeskip">
+<code class="sig-name descname">cross_section_nodeskip</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">nlay</em>, <em class="sig-param">xypts</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_nodeskip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a nodeskip list for PlotCrossSection. This is a correction
+for UnstructuredGridPlotting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nlay</strong><span class="classifier">int</span></dt><dd><p>nlay is nlay + ncb</p>
+</dd>
+<dt><strong>xypts</strong><span class="classifier">dict</span></dt><dd><p>dictionary of node number and xyvertices of a cross-section</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">n-dimensional list of nodes to not plot for each layer</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.cross_section_set_contour_arrays">
+<code class="sig-name descname">cross_section_set_contour_arrays</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">plotarray</em>, <em class="sig-param">xcenters</em>, <em class="sig-param">head</em>, <em class="sig-param">elev</em>, <em class="sig-param">projpts</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_set_contour_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set countour array centers for rare instances where
+matplotlib contouring is prefered over trimesh plotting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>plotarray</strong><span class="classifier">np.ndarray</span></dt><dd><p>array of data for contouring</p>
+</dd>
+<dt><strong>xcenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>xcenters array</p>
+</dd>
+<dt><strong>zcenters</strong><span class="classifier">np.ndarray</span></dt><dd><p>zcenters array</p>
+</dd>
+<dt><strong>head</strong><span class="classifier">np.ndarray</span></dt><dd><p>head array to adjust cell centers location</p>
+</dd>
+<dt><strong>elev</strong><span class="classifier">np.ndarray</span></dt><dd><p>cell elevation array</p>
+</dd>
+<dt><strong>projpts</strong><span class="classifier">dict</span></dt><dd><p>dictionary of projected cross sectional vertices</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple: (np.ndarray, np.ndarray, np.ndarray, bool)</dt><dd><p>plotarray, xcenter array, ycenter array, and a boolean flag
+for contouring</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.cross_section_vertices">
+<em class="property">property </em><code class="sig-name descname">cross_section_vertices</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.cross_section_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a set of xvertices and yvertices ordered by node
+for plotting cross sections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>xverts, yverts: (np.ndarray, np.ndarray)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.from_binary_grid_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_binary_grid_file</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.from_binary_grid_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a StructuredGrid model grid from a MODFLOW 6 binary
+grid (<a href="#id3"><span class="problematic" id="id4">*</span></a>.grb) file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>file path for the MODFLOW 6 binary grid file</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>Write information to standard output.  Default is False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>return</strong><span class="classifier">StructuredGrid</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_cell_vertices">
+<code class="sig-name descname">get_cell_vertices</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_cell_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Method to get a set of cell vertices for a single cell</dt><dd><p>used in the Shapefile export utilities and plotting code</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> – (int) node number</p></li>
+<li><p><strong>i</strong> – (int) cell row number</p></li>
+<li><p><strong>j</strong> – (int) cell column number</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns
+——- list of x,y cell vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_coords">
+<code class="sig-name descname">get_coords</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given x and y array-like values, apply rotation, scale and offset,
+to convert them from model coordinates to real-world coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_local_coords">
+<code class="sig-name descname">get_local_coords</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_local_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given x and y array-like values, apply rotation, scale and offset,
+to convert them from real-world coordinates to model coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_lrc">
+<code class="sig-name descname">get_lrc</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_lrc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get layer, row, column from a list of zero based
+MODFLOW node numbers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>v</strong><span class="classifier">list of tuples containing the layer (k), row (i),</span></dt><dd><p>and column (j) for each node in the input list</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_node">
+<code class="sig-name descname">get_node</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">lrc_list</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get node number from a list of zero based MODFLOW
+layer, row, column tuples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>v</strong><span class="classifier">list of MODFLOW nodes for each layer (k), row (i),</span></dt><dd><p>and column (j) tuple in the input list</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_number_plottable_layers">
+<code class="sig-name descname">get_number_plottable_layers</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_number_plottable_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and return the number of 2d plottable arrays that can be
+obtained from the array passed (a)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">ndarray</span></dt><dd><p>array to check for plottable layers</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>nplottable</strong><span class="classifier">int</span></dt><dd><p>number of plottable layers</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.get_plottable_layer_shape">
+<code class="sig-name descname">get_plottable_layer_shape</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">layer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.get_plottable_layer_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the shape that is required in order to plot a 2d array for
+this grid.  For a regular MODFLOW grid, this is (nrow, ncol).  For
+a vertex grid, this is (ncpl,) and for an unstructured grid this is
+(ncpl[layer],).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>layer</strong><span class="classifier">int</span></dt><dd><p>Has no effect unless grid changes by layer</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>shape</strong><span class="classifier">tuple</span></dt><dd><p>required shape of array to plot for a layer</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.grid_lines">
+<em class="property">property </em><code class="sig-name descname">grid_lines</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.grid_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the grid lines as a list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.intersect">
+<code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z=None</em>, <em class="sig-param">local=False</em>, <em class="sig-param">forgive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the row and column of a point with coordinates x and y</p>
+<p>When the point is on the edge of two cells, the cell with the lowest
+row or column is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">float</span></dt><dd><p>The x-coordinate of the requested point</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">float</span></dt><dd><p>The y-coordinate of the requested point</p>
+</dd>
+<dt><strong>z</strong><span class="classifier">float</span></dt><dd><p>Optional z-coordinate of the requested point (will return layer,
+row, column) if supplied</p>
+</dd>
+<dt><strong>local: bool (optional)</strong></dt><dd><p>If True, x and y are in local coordinates (defaults to False)</p>
+</dd>
+<dt><strong>forgive: bool (optional)</strong></dt><dd><p>Forgive x,y arguments that fall outside the model grid and
+return NaNs instead (defaults to False - will throw exception)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>row</strong><span class="classifier">int</span></dt><dd><p>The row number</p>
+</dd>
+<dt><strong>col</strong><span class="classifier">int</span></dt><dd><p>The column number</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_rectilinear">
+<em class="property">property </em><code class="sig-name descname">is_rectilinear</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_rectilinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether the grid is rectilinear (it is always so in the x and
+y directions, but not necessarily in the z direction).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular">
+<em class="property">property </em><code class="sig-name descname">is_regular</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the grid spacing is regular and equal in x, y and z directions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_x">
+<em class="property">property </em><code class="sig-name descname">is_regular_x</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether the grid spacing is regular in the x direction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_xy">
+<em class="property">property </em><code class="sig-name descname">is_regular_xy</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the grid spacing is regular and equal in x and y directions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_xz">
+<em class="property">property </em><code class="sig-name descname">is_regular_xz</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_xz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the grid spacing is regular and equal in x and z directions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_y">
+<em class="property">property </em><code class="sig-name descname">is_regular_y</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether the grid spacing is regular in the y direction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_yz">
+<em class="property">property </em><code class="sig-name descname">is_regular_yz</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_yz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the grid spacing is regular and equal in y and z directions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.is_regular_z">
+<em class="property">property </em><code class="sig-name descname">is_regular_z</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.is_regular_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the grid spacing is regular in z direction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.load_coord_info">
+<code class="sig-name descname">load_coord_info</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">namefile=None</em>, <em class="sig-param">reffile='usgs.model.reference'</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.load_coord_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to load spatial reference information from
+the following files (in order):
+1) usgs.model.reference
+2) NAM file (header comment)
+3) defaults</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.load_from_file">
+<em class="property">static </em><code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/fishnet.html#GenerateFishnet.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to load a binary modelgrid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>binary modelgrid file name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>GenerateFishnet object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.map_polygons">
+<em class="property">property </em><code class="sig-name descname">map_polygons</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.map_polygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of matplotlib Polygon patches for plotting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>list of Polygon objects</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the grid lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>kwargs</strong><span class="classifier">ax, colors.  The remaining kwargs are passed into the</span></dt><dd><p>the LineCollection constructor.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>lc</strong><span class="classifier">matplotlib.collections.LineCollection</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.read_usgs_model_reference_file">
+<code class="sig-name descname">read_usgs_model_reference_file</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">reffile='usgs.model.reference'</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.read_usgs_model_reference_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>read spatial reference info from the usgs.model.reference file
+<a class="reference external" href="https://water.usgs.gov/ogw/policy/gw-model/modelers-setup.html">https://water.usgs.gov/ogw/policy/gw-model/modelers-setup.html</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.remove_confining_beds">
+<code class="sig-name descname">remove_confining_beds</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">array</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.remove_confining_beds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to remove confining bed layers from an array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>array</strong><span class="classifier">np.ndarray</span></dt><dd><p>array to remove quasi3d confining bed data from. Shape of axis 0
+should be (self.lay + ncb) to remove beds</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd><p>np.ndarray</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.saturated_thick">
+<code class="sig-name descname">saturated_thick</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">array</em>, <em class="sig-param">mask=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.saturated_thick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the saturated thickness for a structured, vertex, or unstructured
+grid. If the optional array is passed then thickness is returned
+relative to array values (saturated thickness). Returned values
+ranges from zero to cell thickness if optional array is passed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>array</strong><span class="classifier">ndarray</span></dt><dd><p>array of elevations that will be used to adjust the cell thickness</p>
+</dd>
+<dt><strong>mask: float, list, tuple, ndarray</strong></dt><dd><p>array values to replace with a nan value.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>thick</strong><span class="classifier">calculated saturated thickness</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.thick">
+<em class="property">property </em><code class="sig-name descname">thick</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.thick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the cell thickness for a structured, vertex, or unstructured grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>thick</strong><span class="classifier">calculated thickness</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.top_botm_withnan">
+<em class="property">property </em><code class="sig-name descname">top_botm_withnan</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.top_botm_withnan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as top_botm array but with NaN where idomain==0 both above and
+below a cell.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/builder/fishnet.html#GenerateFishnet.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to save a binary copy of the modelgrid for later use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">str</span></dt><dd><p>filename</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.write_shapefile">
+<code class="sig-name descname">write_shapefile</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename='grid.shp'</em>, <em class="sig-param">epsg=None</em>, <em class="sig-param">prj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.write_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a shapefile of the grid with just the row and column attributes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.xycenters">
+<em class="property">property </em><code class="sig-name descname">xycenters</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.xycenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of two numpy one-dimensional float arrays for center x
+and y coordinates in model space - not offset or rotated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.xyedges">
+<em class="property">property </em><code class="sig-name descname">xyedges</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.xyedges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of two 1D numpy arrays: one with the cell edge x
+coordinate (size = ncol+1) and the other with the cell edge y
+coordinate (size = nrow+1) in model space - not offset or rotated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.xyzcellcenters">
+<em class="property">property </em><code class="sig-name descname">xyzcellcenters</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.xyzcellcenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of three numpy float arrays: two two-dimensional arrays
+for center x and y coordinates, and one three-dimensional array for
+center z coordinates. Coordinates are given in real-world coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.xyzvertices">
+<em class="property">property </em><code class="sig-name descname">xyzvertices</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.xyzvertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get all grid vertices in a layer</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>[]
+2D array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.zedges">
+<em class="property">property </em><code class="sig-name descname">zedges</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.zedges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return zedges for (column, row)==(0, 0).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.builder.fishnet.GenerateFishnet.zverts_smooth">
+<em class="property">property </em><code class="sig-name descname">zverts_smooth</code><a class="headerlink" href="#gsflow.builder.fishnet.GenerateFishnet.zverts_smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a unique z of cell vertices using bilinear interpolation of top and
+bottom elevation layers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>zverts</strong><span class="classifier">ndarray, shape (nlay+1, nrow+1, ncol+1)</span></dt><dd><p>z of cell vertices. NaN values are assigned in accordance with
+inactive cells defined by idomain.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="flow_accumulation.html" class="btn btn-neutral float-right" title="gsflow.builder.flow_accumulation Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="controlfile_builder.html" class="btn btn-neutral float-left" title="gsflow.builder.controlfile_builder Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on May 27, 2022.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

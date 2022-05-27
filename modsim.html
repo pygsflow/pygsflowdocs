@@ -42,7 +42,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gsflow.output.discretization Module" href="discretization.html" />
+    <link rel="next" title="gsflow.builder.builder_defaults Module" href="builder_defaults.html" />
     <link rel="prev" title="gsflow.modflow.mfawu Module" href="mfawu.html" /> 
 </head>
 
@@ -115,6 +115,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">gsflow.modsim.modsim Module</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a></li>
 </ul>
@@ -258,7 +259,7 @@ stream vector shapefile.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modsim.modsim.Modsim.write_modsim_shapefile" title="gsflow.modsim.modsim.Modsim.write_modsim_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_modsim_shapefile</span></code></a>(self[, shp, proj4, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.modsim.modsim.Modsim.write_modsim_shapefile" title="gsflow.modsim.modsim.Modsim.write_modsim_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_modsim_shapefile</span></code></a>(self[, shp, epsg, …])</p></td>
 <td><p>Method to create a modsim compatible shapefile from GSFLOW model inputs (SFR, LAK) package.</p></td>
 </tr>
 </tbody>
@@ -289,7 +290,7 @@ stream vector shapefile.</p>
 
 <dl class="method">
 <dt id="gsflow.modsim.modsim.Modsim.write_modsim_shapefile">
-<code class="sig-name descname">write_modsim_shapefile</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">shp=None</em>, <em class="sig-param">proj4=None</em>, <em class="sig-param">flag_spillway=False</em>, <em class="sig-param">nearest=True</em>, <em class="sig-param">sfr_nearest=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modsim/modsim.html#Modsim.write_modsim_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modsim.modsim.Modsim.write_modsim_shapefile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_modsim_shapefile</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">shp=None</em>, <em class="sig-param">epsg=None</em>, <em class="sig-param">flag_spillway=False</em>, <em class="sig-param">nearest=True</em>, <em class="sig-param">sfr_nearest=False</em>, <em class="sig-param">flag_ag_diversion=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/modsim/modsim.html#Modsim.write_modsim_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.modsim.modsim.Modsim.write_modsim_shapefile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to create a modsim compatible
 shapefile from GSFLOW model inputs (SFR, LAK)
 package.</p>
@@ -300,8 +301,8 @@ package.</p>
 will be written in gsflow directory using
 the model name.</p>
 </dd>
-<dt><strong>proj4</strong><span class="classifier">str</span></dt><dd><p>proj4 projection string, if none will try to
-grab proj4 or epsg from flopy modelgrid</p>
+<dt><strong>epsg</strong><span class="classifier">int</span></dt><dd><p>epsg projection projection code, if none will epsg from
+flopy modelgrid</p>
 </dd>
 <dt><strong>flag_spillway</strong><span class="classifier">bool, str, list</span></dt><dd><p>if flag_spillway is indicated then MODSIM will change
 the spill_flg attribute to one. This can be accomplished
@@ -322,6 +323,9 @@ on iupseg and outseg</p>
 distance equation. If False topology will connect to the start
 or end of the Segment based on iupseg and outseg</p>
 </dd>
+<dt><strong>flag_ag_diversion</strong><span class="classifier">bool</span></dt><dd><p>if flag_ag_diversion is True, code will check if SFR segments are
+agricultural diversions and then flag the diversions.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -337,7 +341,7 @@ or end of the Segment based on iupseg and outseg</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="discretization.html" class="btn btn-neutral float-right" title="gsflow.output.discretization Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="builder_defaults.html" class="btn btn-neutral float-right" title="gsflow.builder.builder_defaults Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="mfawu.html" class="btn btn-neutral float-left" title="gsflow.modflow.mfawu Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -346,7 +350,7 @@ or end of the Segment based on iupseg and outseg</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Feb 22, 2022.
+        Last updated on May 27, 2022.
       </span>
 
     </p>

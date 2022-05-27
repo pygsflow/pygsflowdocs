@@ -112,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="code.html#prms-classes">PRMS Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modflow-classes">MODFLOW Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#modsim-classes">MODSIM Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code.html#builder-classes">Builder Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code.html#model-output-utilities">Model Output Utilities</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="code.html#model-utilities">Model Utilities</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constants.html">gsflow.utils.constants Module</a></li>
@@ -223,28 +224,48 @@
 particularly to sample raster using a PrmsDiscretization
 object and then use it as input data</p>
 <dl class="class">
-<dt id="gsflow.utils.rasters.Rasters">
-<em class="property">class </em><code class="sig-prename descclassname">gsflow.utils.rasters.</code><code class="sig-name descname">Rasters</code><span class="sig-paren">(</span><em class="sig-param">raster</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters" title="Permalink to this definition">¶</a></dt>
-<dd><p>DEPRECATED: please use flopy.utils.Rasters, will be removed in version
-1.1.0</p>
-<p>Raster object which allows the users to snap a raster to a grid.</p>
+<dt id="gsflow.utils.rasters.Raster">
+<em class="property">class </em><code class="sig-prename descclassname">gsflow.utils.rasters.</code><code class="sig-name descname">Raster</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">bands</em>, <em class="sig-param">crs</em>, <em class="sig-param">transform</em>, <em class="sig-param">nodataval</em>, <em class="sig-param">driver='GTiff'</em>, <em class="sig-param">rio_ds=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overloaded flopy.utils.Raster class. This class is used to resample
+rasters and the overload allows for multiprocessing using the “ray”
+python library</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>raster</strong><span class="classifier">osgeo.gdal.Dataset object</span></dt><dd></dd>
+<dt><strong>array</strong><span class="classifier">np.ndarray</span></dt><dd><p>a three dimensional array of raster values with dimensions
+defined by (raster band, nrow, ncol)</p>
+</dd>
+<dt><strong>bands</strong><span class="classifier">tuple</span></dt><dd><p>a tuple of raster bands</p>
+</dd>
+<dt><strong>crs</strong><span class="classifier">int, string, rasterio.crs.CRS object</span></dt><dd><p>either a epsg code, a proj4 string, or a CRS object</p>
+</dd>
+<dt><strong>transform</strong><span class="classifier">affine.Affine object</span></dt><dd><p>affine object, which is used to define geometry</p>
+</dd>
+<dt><strong>nodataval</strong><span class="classifier">float</span></dt><dd><p>raster no data value</p>
+</dd>
+<dt><strong>rio_ds</strong><span class="classifier">DatasetReader object</span></dt><dd><p>rasterIO dataset Reader object</p>
+</dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
-<dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.band_array" title="gsflow.utils.rasters.Rasters.band_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">band_array</span></code></a></dt><dd><p>Returns</p>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gsflow.utils</span> <span class="kn">import</span> <span class="n">Raster</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rio</span> <span class="o">=</span> <span class="n">Raster</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;myraster.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Raster.bands" title="gsflow.utils.rasters.Raster.bands"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bands</span></code></a></dt><dd><p>Returns a tuple of raster bands</p>
 </dd>
-<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.extent" title="gsflow.utils.rasters.Rasters.extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extent</span></code></a></dt><dd><p>Returns</p>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Raster.bounds" title="gsflow.utils.rasters.Raster.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a></dt><dd><p>Returns a tuple of xmin, xmax, ymin, ymax boundaries</p>
 </dd>
-<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.xpoints" title="gsflow.utils.rasters.Rasters.xpoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpoints</span></code></a></dt><dd><p>Returns</p>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Raster.nodatavals" title="gsflow.utils.rasters.Raster.nodatavals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodatavals</span></code></a></dt><dd><p>Returns a Tuple of values used to define no data</p>
 </dd>
-<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.xypoints" title="gsflow.utils.rasters.Rasters.xypoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xypoints</span></code></a></dt><dd><p>Returns</p>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Raster.xcenters" title="gsflow.utils.rasters.Raster.xcenters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcenters</span></code></a></dt><dd><p>Returns a np.ndarray of raster x cell centers</p>
 </dd>
-<dt><a class="reference internal" href="#gsflow.utils.rasters.Rasters.ypoints" title="gsflow.utils.rasters.Rasters.ypoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypoints</span></code></a></dt><dd><p>Returns</p>
+<dt><a class="reference internal" href="#gsflow.utils.rasters.Raster.ycenters" title="gsflow.utils.rasters.Raster.ycenters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ycenters</span></code></a></dt><dd><p>Returns a np.ndarray of raster y cell centers</p>
 </dd>
 </dl>
 </dd>
@@ -256,71 +277,84 @@ object and then use it as input data</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.load" title="gsflow.utils.rasters.Rasters.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(name)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.crop" title="gsflow.utils.rasters.Raster.crop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crop</span></code></a>(self, polygon[, invert])</p></td>
+<td><p>Method to crop a new raster object from the current raster object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.sample_discretization" title="gsflow.utils.rasters.Rasters.sample_discretization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_discretization</span></code></a>(self, prms_discretizaiton)</p></td>
-<td><p>Method to sample the raster using the prms_discretization object cell centers</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.get_array" title="gsflow.utils.rasters.Raster.get_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_array</span></code></a>(self, band[, masked])</p></td>
+<td><p>Method to get a numpy array corresponding to the provided raster band.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Rasters.set_raster_band" title="gsflow.utils.rasters.Rasters.set_raster_band"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_raster_band</span></code></a>(self, band)</p></td>
-<td><p>Method to use GDAL to set the raster band for visualization</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.histogram" title="gsflow.utils.rasters.Raster.histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram</span></code></a>(self[, ax])</p></td>
+<td><p>Method to plot a histogram of digital numbers</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.load" title="gsflow.utils.rasters.Raster.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(raster)</p></td>
+<td><p>Static method to load a raster file into the raster object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.plot" title="gsflow.utils.rasters.Raster.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self[, ax, contour])</p></td>
+<td><p>Method to plot raster layers or contours.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.resample_to_grid" title="gsflow.utils.rasters.Raster.resample_to_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample_to_grid</span></code></a>(self, modelgrid, band[, …])</p></td>
+<td><p>Method to resample the raster data to a user supplied grid of x, y coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.sample_point" title="gsflow.utils.rasters.Raster.sample_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_point</span></code></a>(self, \*point[, band])</p></td>
+<td><p>Method to get nearest raster value at a user provided point</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.sample_polygon" title="gsflow.utils.rasters.Raster.sample_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_polygon</span></code></a>(self, polygon, band[, invert])</p></td>
+<td><p>Method to get an unordered list of raster values that are located within a arbitrary polygon</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gsflow.utils.rasters.Raster.write" title="gsflow.utils.rasters.Raster.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(self, name)</p></td>
+<td><p>Method to write raster data to a .tif file</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.band_array">
-<em class="property">property </em><code class="sig-name descname">band_array</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.band_array" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>np.ndarray of the raster band</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<dt id="gsflow.utils.rasters.Raster.bands">
+<em class="property">property </em><code class="sig-name descname">bands</code><a class="headerlink" href="#gsflow.utils.rasters.Raster.bands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple of raster bands</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.extent">
-<em class="property">property </em><code class="sig-name descname">extent</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.extent" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>(xmin, xmax, ymin, ymax)</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<dt id="gsflow.utils.rasters.Raster.bounds">
+<em class="property">property </em><code class="sig-name descname">bounds</code><a class="headerlink" href="#gsflow.utils.rasters.Raster.bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple of xmin, xmax, ymin, ymax boundaries</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.load">
-<em class="property">static </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.load" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt id="gsflow.utils.rasters.Raster.crop">
+<code class="sig-name descname">crop</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">polygon</em>, <em class="sig-param">invert=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.crop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.crop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to crop a new raster object
+from the current raster object</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>name</strong><span class="classifier">raster file name</span></dt><dd></dd>
-</dl>
+<dd class="field-odd"><dl>
+<dt><strong>polygon</strong><span class="classifier">list, geojson, shapely.geometry, shapefile.Shape</span></dt><dd><p>crop method accepts any of these geometries:</p>
+<p>a list of (x, y) points, ex. [(x1, y1), …]
+geojson Polygon object
+shapely Polygon object
+shapefile Polygon shape
+flopy Polygon shape</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>Rasters object</dt><dd></dd>
+<dt><strong>invert</strong><span class="classifier">bool</span></dt><dd><p>Default value is False. If invert is True then the
+area inside the shapes will be masked out</p>
+</dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.sample_discretization">
-<code class="sig-name descname">sample_discretization</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">prms_discretizaiton</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.sample_discretization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.sample_discretization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to sample the raster using the prms_discretization
-object cell centers</p>
+<dt id="gsflow.utils.rasters.Raster.get_array">
+<code class="sig-name descname">get_array</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">band</em>, <em class="sig-param">masked=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.get_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.get_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get a numpy array corresponding to the
+provided raster band. Nodata vals are set to
+np.NaN</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>prms_discretizaiton</strong><span class="classifier">PrmsDiscretization object</span></dt><dd></dd>
+<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>band number from the raster</p>
+</dd>
+<dt><strong>masked</strong><span class="classifier">bool</span></dt><dd><p>determines if nodatavals will be returned as np.nan to
+the user</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -332,14 +366,190 @@ object cell centers</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.set_raster_band">
-<code class="sig-name descname">set_raster_band</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">band</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Rasters.set_raster_band"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Rasters.set_raster_band" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to use GDAL to set the raster band
-for visualization</p>
+<dt id="gsflow.utils.rasters.Raster.histogram">
+<code class="sig-name descname">histogram</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.histogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to plot a histogram of digital numbers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>raster band number</p>
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd><p>optional matplotlib axes for plotting</p>
+</dd>
+<dt><strong>**kwargs :</strong></dt><dd><p>matplotlib keyword arguments
+see matplotlib documentation for valid
+arguments for histogram</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.load">
+<em class="property">static </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">raster</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Static method to load a raster file
+into the raster object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>raster</strong><span class="classifier">str</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Raster object</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.nodatavals">
+<em class="property">property </em><code class="sig-name descname">nodatavals</code><a class="headerlink" href="#gsflow.utils.rasters.Raster.nodatavals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Tuple of values used to define no data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">contour=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to plot raster layers or contours.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd><p>optional matplotlib axes for plotting</p>
+</dd>
+<dt><strong>contour</strong><span class="classifier">bool</span></dt><dd><p>flag to indicate creation of contour plot</p>
+</dd>
+<dt><strong>**kwargs :</strong></dt><dd><p>matplotlib keyword arguments
+see matplotlib documentation for valid
+arguments for plot and contour.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.pyplot.axes</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.resample_to_grid">
+<code class="sig-name descname">resample_to_grid</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">modelgrid</em>, <em class="sig-param">band</em>, <em class="sig-param">method='nearest'</em>, <em class="sig-param">multithread=False</em>, <em class="sig-param">thread_pool=2</em>, <em class="sig-param">extrapolate_edges=False</em>, <em class="sig-param">no_numba=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.resample_to_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.resample_to_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to resample the raster data to a
+user supplied grid of x, y coordinates.</p>
+<p>x, y coordinate arrays should correspond
+to grid vertices</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>modelgrid</strong><span class="classifier">flopy.Grid object</span></dt><dd><p>model grid to sample data from</p>
+</dd>
+<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>raster band to re-sample</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">str</span></dt><dd><p>scipy interpolation methods</p>
+<p><code class="docutils literal notranslate"><span class="pre">linear</span></code> for bi-linear interpolation</p>
+<p><code class="docutils literal notranslate"><span class="pre">nearest</span></code> for nearest neighbor</p>
+<p><code class="docutils literal notranslate"><span class="pre">cubic</span></code> for bi-cubic interpolation</p>
+<p><code class="docutils literal notranslate"><span class="pre">mean</span></code> for mean sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">median</span></code> for median sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">min</span></code> for minimum sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">max</span></code> for maximum sampling</p>
+</dd>
+<dt><strong>multithread</strong><span class="classifier">bool</span></dt><dd><p>boolean flag indicating if multithreading should be used with
+the <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">median</span></code> sampling methods</p>
+</dd>
+<dt><strong>thread_pool</strong><span class="classifier">int</span></dt><dd><p>number of threads to use for mean and median sampling</p>
+</dd>
+<dt><strong>extrapolate_edges</strong><span class="classifier">bool</span></dt><dd><p>boolean flag indicating if areas without data should be filled
+using the <code class="docutils literal notranslate"><span class="pre">nearest</span></code> interpolation method. This option
+has no effect when using the <code class="docutils literal notranslate"><span class="pre">nearest</span></code> interpolation method.</p>
+</dd>
+<dt><strong>block_sample: bool</strong></dt><dd><p>experimental block reduction method for downscale resampling</p>
+</dd>
+<dt><strong>no_numba</strong><span class="classifier">bool</span></dt><dd><p>method to turn off numba based resampling, default is False</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.array</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.sample_point">
+<code class="sig-name descname">sample_point</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*point</em>, <em class="sig-param">band=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.sample_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.sample_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get nearest raster value at a user provided
+point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>*point</strong><span class="classifier">point geometry representation</span></dt><dd><p>accepted data types:
+x, y values : ex. sample_point(1, 3, band=1)
+tuple of x, y: ex sample_point((1, 3), band=1)
+shapely.geometry.Point
+geojson.Point
+flopy.geometry.Point</p>
+</dd>
+<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>raster band to re-sample</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.sample_polygon">
+<code class="sig-name descname">sample_polygon</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">polygon</em>, <em class="sig-param">band</em>, <em class="sig-param">invert=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.sample_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.sample_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get an unordered list of raster values that are located
+within a arbitrary polygon</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>polygon</strong><span class="classifier">list, geojson, shapely.geometry, shapefile.Shape</span></dt><dd><p>sample_polygon method accepts any of these geometries:</p>
+<p>a list of (x, y) points, ex. [(x1, y1), …]
+geojson Polygon object
+shapely Polygon object
+shapefile Polygon shape
+flopy Polygon shape</p>
+</dd>
+<dt><strong>band</strong><span class="classifier">int</span></dt><dd><p>raster band to re-sample</p>
+</dd>
+<dt><strong>invert</strong><span class="classifier">bool</span></dt><dd><p>Default value is False. If invert is True then the
+area inside the shapes will be masked out</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray of unordered raster values</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gsflow.utils.rasters.Raster.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#Raster.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.Raster.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to write raster data to a .tif
+file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>output raster .tif file name</p>
 </dd>
 </dl>
 </dd>
@@ -347,41 +557,84 @@ for visualization</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.xpoints">
-<em class="property">property </em><code class="sig-name descname">xpoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.xpoints" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>Cell centered x points for raster values</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<dt id="gsflow.utils.rasters.Raster.xcenters">
+<em class="property">property </em><code class="sig-name descname">xcenters</code><a class="headerlink" href="#gsflow.utils.rasters.Raster.xcenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a np.ndarray of raster x cell centers</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.xypoints">
-<em class="property">property </em><code class="sig-name descname">xypoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.xypoints" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>np.ndarray cell centered x, y points for raster values</dt><dd></dd>
+<dt id="gsflow.utils.rasters.Raster.ycenters">
+<em class="property">property </em><code class="sig-name descname">ycenters</code><a class="headerlink" href="#gsflow.utils.rasters.Raster.ycenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a np.ndarray of raster y cell centers</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gsflow.utils.rasters.compiled_resampling">
+<code class="sig-prename descclassname">gsflow.utils.rasters.</code><code class="sig-name descname">compiled_resampling</code><span class="sig-paren">(</span><em class="sig-param">polygons</em>, <em class="sig-param">method</em>, <em class="sig-param">arr</em>, <em class="sig-param">xc</em>, <em class="sig-param">yc</em>, <em class="sig-param">nodatavals</em>, <em class="sig-param">ray_count</em>, <em class="sig-param">mask</em>, <em class="sig-param">data</em>, <em class="sig-param">ncpl</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#compiled_resampling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.compiled_resampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiprocessing method to resample to grid using mean, min, max, mode,
+or median resampling. Method uses numba compiled python to take advantage
+of parallel compiled methods for performing point in polygon calculations.
+Code is ~ 3 - 4 times faster than python multithreading and
+multiprocessing.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>polygons</strong><span class="classifier">np.ndarray</span></dt><dd><p>3 dimensional array of polygon vertices for the model</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">str</span></dt><dd><p>sampling methods</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mean</span></code> for mean sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">median</span></code> for median sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">min</span></code> for minimum sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">max</span></code> for maximum sampling</p>
+<p><code class="docutils literal notranslate"><span class="pre">mode</span></code> for most frequent sampling</p>
+</div></blockquote>
+</dd>
+<dt><strong>arr</strong><span class="classifier">np.ndarray</span></dt><dd><p>array of raster data</p>
+</dd>
+<dt><strong>xc</strong><span class="classifier">np.ndarray</span></dt><dd><p>raster cell xcenter points</p>
+</dd>
+<dt><strong>yc</strong><span class="classifier">np.ndarray</span></dt><dd><p>raster cell ycenter points</p>
+</dd>
+<dt><strong>nodatavals</strong><span class="classifier">np.ndarray</span></dt><dd><p>1d array of no data values for raster</p>
+</dd>
+<dt><strong>ray_count</strong><span class="classifier">np.ndarray</span></dt><dd><p>2d zero array of shape nrow, ncol</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">np.ndarray</span></dt><dd><p>2d boolean array (True) of shape nrow, ncol</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">np.ndarray</span></dt><dd><p>2d zero array of shape nrow, ncol to set resampled data to</p>
+</dd>
+<dt><strong>ncpl</strong><span class="classifier">int</span></dt><dd><p>number of cells per layer</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">np.ndarray of resampled raster data</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="gsflow.utils.rasters.Rasters.ypoints">
-<em class="property">property </em><code class="sig-name descname">ypoints</code><a class="headerlink" href="#gsflow.utils.rasters.Rasters.ypoints" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dl class="attribute">
+<dt id="gsflow.utils.rasters.numba_mode">
+<code class="sig-prename descclassname">gsflow.utils.rasters.</code><code class="sig-name descname">numba_mode</code><span class="sig-paren">(</span><em class="sig-param">a</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gsflow/utils/rasters.html#numba_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gsflow.utils.rasters.numba_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numba method to calculate most frequent value in an array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>Cell centered y points for raster values</dt><dd></dd>
+<dt><strong>a</strong><span class="classifier">np.ndarray</span></dt><dd><p>1d array of values</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>mode, count</dt><dd></dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -401,7 +654,7 @@ for visualization</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Feb 22, 2022.
+        Last updated on May 27, 2022.
       </span>
 
     </p>
